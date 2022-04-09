@@ -8,7 +8,7 @@ import MenuCard from "../components/Menuscard";
 import Restaurantscard from "../components/Restaurantscard";
 import Ratings from "../components/Ratings";
 
-
+//dsgfsfd
 
 
 
@@ -45,7 +45,6 @@ const FoodChoiceScreen = ({ navigation }) => {
                     borderTopLeftRadius: 10,
                     borderTopRightRadius: 10,
                 }}>
-
 
                     <Image source={ImgMenu} style={styles.image} />
 
