@@ -8,7 +8,7 @@ import MenuCard from "../components/Menuscard";
 import Restaurantscard from "../components/Restaurantscard";
 import Ratings from "../components/Ratings";
 
-//dsgfsfd
+
 
 
 
