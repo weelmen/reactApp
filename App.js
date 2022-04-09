@@ -6,14 +6,25 @@
  import 'react-native-gesture-handler';
  
  import LoginScreen from './screens/LoginScreen';
- 
+ import RegisterScreen from './screens/RegisterScreen';
+ import SignupScreen from './screens/SignupScreen';
+ import SignupScreen2 from './screens/SignupScreen2';
+ import RestaurantsScreen from './screens/RestaurantsScreen';
+ import MenusScreen from './screens/MenusScreen'
+ import FoodChoiceScreen from './screens/FoodChoiceScreen';
  const Stack = createStackNavigator();
  const App = () => {
    return (
      
        <NavigationContainer>
-         <Stack.Navigator initialRouteName="Login">
-           <Stack.Screen name="Login" component={LoginScreen} />
+         <Stack.Navigator initialRouteName="Choice Screen">
+           <Stack.Screen name="Sign In" component={LoginScreen} />
+           <Stack.Screen name="Sign Up" component={RegisterScreen} />
+           <Stack.Screen name="Sign Up2" component={SignupScreen} />
+           <Stack.Screen name="Sign Up3" component={SignupScreen2} />
+           <Stack.Screen name="Restaurants Screen" component={RestaurantsScreen} />
+           <Stack.Screen name="Menus Screen" component={MenusScreen} />
+           <Stack.Screen name="Choice Screen" component={FoodChoiceScreen} />
          </Stack.Navigator>
        </NavigationContainer>
     

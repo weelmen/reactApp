@@ -9,14 +9,15 @@ containerView: {
 },
 loginScreenContainer: {
   flex: 1,
-  backgroundColor :"#f6f5f3"
+  backgroundColor :"#f6f5f3",
 },
 logoText: {
-  fontSize: 40,
-  fontWeight: "800",
- // marginTop: 5,
-  marginBottom: 30,
-  textAlign: 'center',
+  
+    color: 'black',
+    backgroundColor: 'transparent',
+    fontSize: 30,
+    fontWeight: "700",
+    textAlign: 'center',
 },
 smallText: {
   fontSize: 12,
@@ -33,6 +34,13 @@ smallText2: {
   marginBottom: 15,
   marginLeft: 25,
   textAlign: 'center',
+},
+validation: {
+  fontSize: 13,
+  fontWeight: "400",
+  marginLeft: 35,
+  textAlign: 'left',
+  color: '#ff94c5'
 },
 resetText: {
   fontSize: 12,
@@ -103,18 +111,17 @@ inputContainer: {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  height: 43,
   fontSize: 14,
-  borderRadius: 10,
   borderWidth: 2,
   borderColor: '#eaeaea',
   backgroundColor: '#ffffff',
   paddingLeft: 3,
   paddingRight:10,
+  borderRadius: 5,
+  height: 45,
   marginLeft: 30,
   marginRight: 30,
-  marginTop: 5,
-  marginBottom: 5,
+ 
 },
 inputView: {
   height: 40,
@@ -132,9 +139,5 @@ vertical: {
   justifyContent: 'space-evenly',
   height: '70%'
 },
-tinyLogo: {
-  width: 50,
-  height: 50,
-  alignItems: 'center',
-},
+
 };

@@ -1,0 +1,89 @@
+{
+    "fakeuserdata": [
+        {
+            "id": 1,
+            "firstname": "abderrahim",
+            "lastname": "oueslati",
+            "country": "tunisia",
+            "birthday": "24/02/1997",
+            "password": "changeme"
+        },
+        {
+            "id": 2,
+            "firstname": "romio",
+            "lastname": "katousa",
+            "country": "italy",
+            "birthday": "24/02/1860",
+            "password": "juliette"
+        }
+    ],
+    "fakerestaurantsdata": [
+        {
+            "id": 1,
+            "name": "mcdonalds",
+            "profilesrcimg": "ReactNativeApp1/images/menu1.jpeg"
+        }
+    ],
+    "fakemenusdata": [
+        {
+            "id": 1,
+            "name": "name1",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-684x1024.jpg.webp"
+        },
+        {
+            "id": 2,
+            "name": "name2",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp"
+        },
+        {
+            "id": 3,
+            "name": "name3",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg.webp"
+        },
+        {
+            "id": 4,
+            "name": "name4",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2020/09/tacos-with-pulled-pork-fresh-vegetables-and-cream-768x1024.jpg.webp"
+        },
+        {
+            "id": 5,
+            "name": "name5",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/11/fresh-beef-burger-takeaway-768x1024.jpg.webp"
+        },
+        {
+            "id": 6,
+            "name": "name6",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp"
+        },
+        {
+            "id": 7,
+            "name": "name1",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-684x1024.jpg.webp"
+        },
+        {
+            "id": 8,
+            "name": "name2",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp"
+        },
+        {
+            "id": 9,
+            "name": "name3",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg.webp"
+        },
+        {
+            "id": 10,
+            "name": "name4",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2020/09/tacos-with-pulled-pork-fresh-vegetables-and-cream-768x1024.jpg.webp"
+        },
+        {
+            "id": 11,
+            "name": "name5",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2021/11/fresh-beef-burger-takeaway-768x1024.jpg.webp"
+        },
+        {
+            "id": 12,
+            "name": "name6",
+            "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp"
+        }
+    ]
+}
