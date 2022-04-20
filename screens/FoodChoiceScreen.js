@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from 'react-native-gesture-handler';
+//import { TouchableOpacity } from 'react-native-gesture-handler';
 //import styles from "./style";
-import { ScrollView, Keyboard,StyleSheet, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
-import { ButtonGroup, SearchBar, Button, Icon, CheckBox, Divider, Card } from 'react-native-elements';
+import { ScrollView, Pressable, Keyboard, StyleSheet, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
+import { ButtonGroup, SearchBar, Button, Icon, Divider, Card } from 'react-native-elements';
 import ImgMenu from "../images/menu1.jpeg";
 import MenuCard from "../components/Menuscard";
 import Restaurantscard from "../components/Restaurantscard";
 import Ratings from "../components/Ratings";
-
-
+//import Logo from "../icons/check_box_outline_blank_black_24dp.svg";
+//import SVGLOGO from "../components/svg";
+import CheckBox from "../components/CheckBox";
 
 
 
@@ -20,6 +21,7 @@ const FoodChoiceScreen = ({ navigation }) => {
     const [check1, setCheck1] = useState(false);
     const [pressedFavorite, setpressedFavorite] = useState(true);
     const [count, setCount] = useState(1);
+    const [choice, setChoice] = useState(false);
     //const imagesrc=imagesrc;
     /*  state = {
      //     imagesrc: '',
@@ -83,7 +85,7 @@ const FoodChoiceScreen = ({ navigation }) => {
 
 
                                 }}>
-                                    <TouchableOpacity
+                                    <Pressable
 
                                         onPress={() => { count > 1 ? setCount(count - 1) : '' }}
                                     >
@@ -96,7 +98,7 @@ const FoodChoiceScreen = ({ navigation }) => {
                                             color={'#6357ff'}
 
                                         />
-                                    </TouchableOpacity>
+                                    </Pressable>
                                     <Text
                                         style={{
                                             fontSize: 18,
@@ -105,7 +107,7 @@ const FoodChoiceScreen = ({ navigation }) => {
                                             color: '#6357ff'
                                         }}
                                     >{count}</Text>
-                                    <TouchableOpacity
+                                    <Pressable
                                         style={{
 
                                         }}
@@ -125,7 +127,7 @@ const FoodChoiceScreen = ({ navigation }) => {
                                             color={'#6357ff'}
 
                                         />
-                                    </TouchableOpacity>
+                                    </Pressable>
                                 </View>
                             </View>
                         </View>
@@ -136,11 +138,11 @@ const FoodChoiceScreen = ({ navigation }) => {
                             <Text style={styles.text}
 
                             >Start at 3 TND</Text>
-                            
+
 
 
                         </View>
-                        
+
 
 
 
@@ -148,7 +150,7 @@ const FoodChoiceScreen = ({ navigation }) => {
                     </View>
 
 
-                    <View style={[styles.cardcontainent, { backgroundColor: '#ffffff', paddingLeft: 12, paddingRight: 12 ,paddingBottom:10,paddingTop:10}]}>
+                    <View style={[styles.cardcontainent, { backgroundColor: '#ffffff', paddingLeft: 12, paddingRight: 12, paddingBottom: 10, paddingTop: 10 }]}>
 
                         <Text style={styles.text}>Choices</Text>
 
@@ -171,57 +173,31 @@ const FoodChoiceScreen = ({ navigation }) => {
                             </View>
                         </View>
                     </View>
-                    <View style={[styles.cardcontainent, { backgroundColor: '#f5f5f5', paddingRight: 12}]}>
+                    
+                    <View style={[styles.cardcontainent, { backgroundColor: 'transparent', paddingLeft: 12, paddingRight: 12, paddingBottom: 10, paddingTop: 10 }]}>
+                        <View style={{
 
-                        <CheckBox
-                            containerStyle={{ backgroundColor: '', margin: 0, marginLeft: 0, marginRight: 0 }}
-                            title="Choice 1"
-                              iconType="material-icons-outlined"
-                              name="check_box_outline_blank"
-                           /* checkedIcon={
-                                <Icon
-                                    name="check_box_outline_blank"
-                                    type="material-icons-outlined"
-                                    color="green"
-                                    size={25}
-                                    iconStyle={{ marginRight: 10 }}
-                                />
-                            }
-                            uncheckedIcon={
-                                <Icon
-                                    name="check"
-                                    type="material"
-                                    color="grey"
-                                    size={25}
-                                    iconStyle={{ marginRight: 10 }}
-                                />
-                            }*/
-                            uncheckedIcon="add"
-                            checked={check1}
-                            onPress={() => setCheck1(!check1)}
-                        />
-
-                        <View
+                            flex: 1,
+                            //backgroundColor: "blue"
 
 
-                            style={{
-
-                                flex: 1,
-
-
-                            }}>
-                            <View style={{
-                                flexDirection: 'row',
-                                alignSelf: "flex-end",
-                                
-
-
-
-                            }}><Text style={[styles.text,{fontSize:30}]}>3 TND</Text>
-                            </View>
+                        }}>
+                            <CheckBox
+                                onPress={() => setChoice(!choice)}
+                                title="Choice 1"
+                                price="3 TND"
+                                isChecked={choice}
+                            />
                         </View>
-                        
                     </View>
+                    <View style={[styles.cardcontainent, { backgroundColor: '#f5f5f5', paddingRight: 12 }]}>
+
+
+
+
+
+                    </View>
+
                 </Card>
 
             </ScrollView>
