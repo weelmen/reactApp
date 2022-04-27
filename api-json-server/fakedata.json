@@ -85,5 +85,27 @@
             "name": "name6",
             "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp"
         }
+    ],"fakechoicedata": [
+        {
+            "id": 1,
+            "name": "Choice 1",
+            "price": 3
+        }, {
+            "id": 2,
+            "name": "Choice 2",
+            "price": 3
+        }, {
+            "id": 3,
+            "name": "Choice 3",
+            "price": 3
+        }, {
+            "id": 4,
+            "name": "Choice 4",
+            "price": 3
+        }, {
+            "id": 5,
+            "name": "Choice 5",
+            "price": 3
+        }
     ]
 }

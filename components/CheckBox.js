@@ -1,18 +1,22 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 //import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Checked from "../icons/check_box_black_24dp.svg"
 import Unchecked from "../icons/check_box_outline_blank_black_24dp.svg"
 const CheckBox = (props) => {
-	const IconName = props.isChecked ?
+	const [choice, setChoice] = useState(true);
+	/*const IconName = /*props.isChecked *//*choice?*/
+		/*Checked : Unchecked;*/
+	/*const iconColor = /*props.isChecked*//*choice ?
+		"blue" : "black";*/
+		const IconName = props.isChecked ?
 		Checked : Unchecked;
 	const iconColor = props.isChecked ?
 		"blue" : "black";
-
 	return (
 		
-			<Pressable style={styles.containers}
-				onPress={props.onPress}>
+			<Pressable key={props.id} style={styles.containers}
+			onPress={props.onPress/*() => setChoice(!choice)*/}	>
 				<IconName fill={iconColor} />
 
 				<View style={styles.container}>
@@ -35,9 +39,10 @@ const CheckBox = (props) => {
 
 
 
-					}}><Text style={styles.price}>{props.price}</Text>
+					}}><Text style={styles.price}>{props.price} TND</Text>
 					</View>
 				</View>
+				<Text style={styles.title}>test{props.bool}</Text>
 			</Pressable>
 
 	);
@@ -47,7 +52,7 @@ export default CheckBox;
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: 'transparent',
+		//backgroundColor: 'transparent',
 		justifyContent: "flex-start",
 		alignItems: "center",
 		flexDirection: "row",
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
 		/*marginTop: 5,
 		marginHorizontal: 5,*/
 	}, containers: {
-		backgroundColor: 'transparent',
+		//backgroundColor: 'transparent',
 		//justifyContent: "flex-start",
 		//alignItems: "center",
 		flexDirection: "row",
@@ -64,12 +69,12 @@ const styles = StyleSheet.create({
 		marginHorizontal: 5,*/
 	},
 	title: {
-		fontSize: 14,
+		fontSize: 13,
 		color: "#000",
 		marginLeft: 5,
 		fontWeight: "500",
 	},price: {
-		fontSize: 14,
+		fontSize: 13,
 		color: "#000",
 		marginLeft: 5,
 		fontWeight: "500",
