@@ -107,5 +107,46 @@
             "name": "Choice 5",
             "price": 3
         }
-    ]
+    ],"fakechoicedata_test": [
+        
+          {
+            "id": 1,
+            "name": "Choices",
+            "option":"Required(1)",
+            "items": [
+                {"id": 1,"name": "Choice 1","price": 14}, 
+                {"id": 2,"name": "Choice 2","price": 5 }, 
+                {"id": 3,"name": "Choice 3","price": 7 }, 
+                {"id": 4,"name": "Choice 4","price": 12}, 
+                {"id": 5,"name": "Choice 5","price": 1 }
+            ]
+          },
+          {
+            "id": 1,
+            "name": "Sauces",
+            "option":"Max 4",
+            "items": [
+                {"id": 1,"name": "Sauce 1","price": 16}, 
+                {"id": 2,"name": "Sauce 2","price": 1 }, 
+                {"id": 3,"name": "Sauce 3","price": 12}, 
+                {"id": 4,"name": "Sauce 4","price": 4 }, 
+                {"id": 5,"name": "Sauce 5","price": 8 },
+                {"id": 6,"name": "Sauce 6","price": 50}
+            ]
+          },
+          {
+            "id": 1,
+            "name": "Extras",
+            "option":"",
+            "items": [
+                {"id": 1,"name": "Extra 1","price": 1 }, 
+                {"id": 2,"name": "Extra 2","price": 3 }, 
+                {"id": 3,"name": "Extra 3","price": 5 }, 
+                {"id": 4,"name": "Extra 4","price": 8 }, 
+                {"id": 5,"name": "Extra 5","price": 7 }
+            ]
+          }
+        
+      
+      ]
 }

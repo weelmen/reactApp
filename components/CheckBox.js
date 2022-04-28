@@ -42,7 +42,7 @@ const CheckBox = (props) => {
 					}}><Text style={styles.price}>{props.price} TND</Text>
 					</View>
 				</View>
-				<Text style={styles.title}>test{props.bool}</Text>
+				
 			</Pressable>
 
 	);
