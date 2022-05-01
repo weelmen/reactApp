@@ -29,19 +29,24 @@ export default class CartsCard extends React.Component {
 
 
 
-                <View>
+                <View
+
+                    style={styles.container}>
 
 
                     <View
                         style={{
                             flex: 1,
-                            flexDirection: 'row'
+                            flexDirection: 'row',
+                            //margin: '1%'
+
                         }}>
                         <View
                             style={{
-
-                                width: '18%',
-                                margin: '2%'
+                                width: 50,
+                                height: 50,
+                                //width: '18%',
+                                //marginRight: '2%'
 
                             }}>
                             <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} />
@@ -55,7 +60,8 @@ export default class CartsCard extends React.Component {
 
                             <View
                                 style={{
-                                    flexDirection: 'column'
+                                    flexDirection: 'column',
+                                    marginLeft: '2%'
                                 }}>
                                 <View
                                     style={{
@@ -69,8 +75,9 @@ export default class CartsCard extends React.Component {
                                         }}>
                                         <Text
                                             style={{
-                                                color: '#6357ff'
-
+                                                color: '#6357ff',
+                                                fontSize: 15,
+                                                fontWeight: "400",
                                             }}
                                         >{this.props.company_Name}</Text>
                                     </View>
@@ -87,7 +94,9 @@ export default class CartsCard extends React.Component {
 
                                         <Text
                                             style={{
-                                                color: '#6357ff'
+                                                color: '#6357ff',
+                                                fontWeight: "400",
+                                                fontSize: 12
 
                                             }}
                                         >See details</Text>
@@ -96,17 +105,18 @@ export default class CartsCard extends React.Component {
 
                                 </View>
                                 <Text
-                                style={{
-                                    color: '#424242'
-
-                                }}
+                                    style={{
+                                        color: '#424242',
+                                        // fontSize: 16,
+                                        fontWeight: "500"
+                                    }}
                                 >{this.props.agent_Name}</Text>
                                 <Text
-                                style={{
-                                    color: '#424242',
-                                    fontSize: 10,
-                                    fontWeight: "300",
-                                }}
+                                    style={{
+                                        color: '#424242',
+                                        fontSize: 10,
+                                        fontWeight: "400",
+                                    }}
                                 >{this.props.workingTime}</Text>
 
 
@@ -115,52 +125,76 @@ export default class CartsCard extends React.Component {
                     </View>
 
                 </View>
-                <View>
 
-                    <Text style={{ 
-                        paddingLeft:'2%',
-                        color: '#6357ff' }}>{this.props.restaurant_name}</Text>
-                    <View
-                        style={{
-                            flex: 1,
-                            flexDirection: "row",
+                <View
+                style={ {marginBottom: '3%',}}
+                >
 
-                        }}>
-                        <View
-                            style={{
-                                // flex
+                    <Text style={{
+                        paddingLeft: '3%',
+                        color: '#6357ff',
+                        fontSize: 15,
+                        fontWeight: "400",
 
-                               
-                                width: '18%',
-                                margin: '2%'
-                            }}>
-                             <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} />
-                        </View>
-                        <View
-                            style={{
-                                flex: 1,
-                                alignItems: 'flex-start',
-                                
-                            }}>
-                            <Text
-                            style={{color:'#424242'}}>x1 Food</Text>
-                            <Text
-                            style={{color:'#424242',fontSize: 11,fontWeight: "400"}}>16.5 TND</Text>
-                        </View>
-                        <View
-                            style={{
-                                flex: 1,
-                                alignItems: 'flex-end',
-                                alignSelf: 'center'
-                            }}>
-                            <Text
-                            style={{color:'#92feaa',fontSize: 15,fontWeight: "500"}}>Ready</Text>
-                        </View>
+                    }}>{this.props.restaurant_name}</Text>
 
-                    </View>
-                   
+                    {this.props.data.items.map((sub, i) => {
+                        return (
+                            <View
+                                style={[{
+                                    flex: 1,
+                                    flexDirection: "row",
+
+                                    // height:50,
+                                    // margin: 2
+                                }, styles.container]}>
+                                <View
+                                    style={{
+                                        // flex
+                                        //flex: 0,
+
+                                        width: 50,
+                                        height: 50,
+
+
+                                    }}>
+                                    <Image source={{ uri: `${sub.imgurl}` }} style={styles.image} />
+
+                                </View>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        alignItems: 'flex-start',
+                                        alignSelf: 'center',
+                                        //marginRight: '2%',
+                                        marginLeft: '2%'
+
+                                    }}>
+                                    <Text
+                                        style={{ color: '#424242' }}>x{sub.number} {sub.name}</Text>
+                                    <Text
+                                        style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>16.5 TND</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        alignItems: 'flex-end',
+                                        alignSelf: 'center'
+                                    }}>
+                                    <Text
+                                        style={[{ fontSize: 15, fontWeight: "500" }, (sub.status == "Ready" || sub.status == "Delivered") ?
+                                            styles.green :
+                                            (sub.status == "Canceled") ?
+                                                styles.red :
+                                                styles.blue
+                                        ]}>{sub.status}</Text>
+                                </View>
+
+                            </View>
+                        );
+                    })}
+
                 </View>
-
 
 
 
@@ -184,18 +218,18 @@ export default class CartsCard extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
+        margin: '3%',
+        marginBottom: 0,
+
 
 
     },
     image: {
         width: '100%',
         height: '100%',
-        //borderRadius: 10,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
+        borderRadius: 7,
+        // borderTopLeftRadius: 10,
+        //  borderTopRightRadius: 10,
         borderWidth: 0,
         borderColor: '#eaeaea',
         backgroundColor: '#fafafa',
@@ -208,13 +242,6 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         marginBottom: 5,
         marginTop: 0,
-
-
-
-
-
-
-
         //  paddingTop: 100,
 
     },
@@ -222,5 +249,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flex: 1
 
-    }
+    },
+
+    green: {
+        color: '#92feaa',
+    },
+    red: {
+        color: '#fa7d9b',
+    },
+    blue: {
+        color: '#847bfd',
+    },
+
+
 });

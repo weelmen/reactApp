@@ -85,133 +85,303 @@
             "name": "name6",
             "srcimg": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp"
         }
-    ],"fakechoicedata": [
+    ],
+    "fakechoicedata": [
         {
             "id": 1,
             "name": "Choice 1",
             "price": 3
-        }, {
+        },
+        {
             "id": 2,
             "name": "Choice 2",
             "price": 3
-        }, {
+        },
+        {
             "id": 3,
             "name": "Choice 3",
             "price": 3
-        }, {
+        },
+        {
             "id": 4,
             "name": "Choice 4",
             "price": 3
-        }, {
+        },
+        {
             "id": 5,
             "name": "Choice 5",
             "price": 3
         }
-    ],"fakechoicedata_test": [
-        
-          {
+    ],
+    "fakechoicedata_test": [
+        {
             "id": 1,
             "name": "Choices",
-            "option":"Required(1)",
+            "option": "Required(1)",
             "items": [
-                {"id": 1,"name": "Choice 1","price": 14}, 
-                {"id": 2,"name": "Choice 2","price": 5 }, 
-                {"id": 3,"name": "Choice 3","price": 7 }, 
-                {"id": 4,"name": "Choice 4","price": 12}, 
-                {"id": 5,"name": "Choice 5","price": 1 }
+                {
+                    "id": 1,
+                    "name": "Choice 1",
+                    "price": 14
+                },
+                {
+                    "id": 2,
+                    "name": "Choice 2",
+                    "price": 5
+                },
+                {
+                    "id": 3,
+                    "name": "Choice 3",
+                    "price": 7
+                },
+                {
+                    "id": 4,
+                    "name": "Choice 4",
+                    "price": 12
+                },
+                {
+                    "id": 5,
+                    "name": "Choice 5",
+                    "price": 1
+                }
             ]
-          },
-          {
+        },
+        {
             "id": 2,
             "name": "Sauces",
-            "option":"Max 4",
+            "option": "Max 4",
             "items": [
-                {"id": 1,"name": "Sauce 1","price": 16}, 
-                {"id": 2,"name": "Sauce 2","price": 1 }, 
-                {"id": 3,"name": "Sauce 3","price": 12}, 
-                {"id": 4,"name": "Sauce 4","price": 4 }, 
-                {"id": 5,"name": "Sauce 5","price": 8 },
-                {"id": 6,"name": "Sauce 6","price": 50}
+                {
+                    "id": 1,
+                    "name": "Sauce 1",
+                    "price": 16
+                },
+                {
+                    "id": 2,
+                    "name": "Sauce 2",
+                    "price": 1
+                },
+                {
+                    "id": 3,
+                    "name": "Sauce 3",
+                    "price": 12
+                },
+                {
+                    "id": 4,
+                    "name": "Sauce 4",
+                    "price": 4
+                },
+                {
+                    "id": 5,
+                    "name": "Sauce 5",
+                    "price": 8
+                },
+                {
+                    "id": 6,
+                    "name": "Sauce 6",
+                    "price": 50
+                }
             ]
-          },
-          {
+        },
+        {
             "id": 3,
             "name": "Extras",
-            "option":"",
+            "option": "",
             "items": [
-                {"id": 1,"name": "Extra 1","price": 1 }, 
-                {"id": 2,"name": "Extra 2","price": 3 }, 
-                {"id": 3,"name": "Extra 3","price": 5 }, 
-                {"id": 4,"name": "Extra 4","price": 8 }, 
-                {"id": 5,"name": "Extra 5","price": 7 }
+                {
+                    "id": 1,
+                    "name": "Extra 1",
+                    "price": 1
+                },
+                {
+                    "id": 2,
+                    "name": "Extra 2",
+                    "price": 3
+                },
+                {
+                    "id": 3,
+                    "name": "Extra 3",
+                    "price": 5
+                },
+                {
+                    "id": 4,
+                    "name": "Extra 4",
+                    "price": 8
+                },
+                {
+                    "id": 5,
+                    "name": "Extra 5",
+                    "price": 7
+                }
             ]
-          }
-        
-      
-      ],"fakecartdata_test": [
-        
-        {
-          "id": 1,
-          "company_Name":"company_Name1",
-          "agent_Name":"agent_Name1",
-          "restaurant_name": "Restaurant 1",
-          "items": [
-              {"id": 1,"name": "Food 1","number": 1,"status": "Ready"}, 
-              {"id": 2,"name": "Food 2","number": 3,"status": "Canceled" }, 
-              {"id": 3,"name": "Food 3","number": 3,"status": "Geting prepared" }, 
-              {"id": 4,"name": "Food 4","number": 2,"status": "Delivered"}
-          ]
-        },
-        {
-          "id": 2,
-          "company_Name":"company_Name2",
-          "agent_Name":"agent_Name2",
-          "restaurant_name": "Restaurant 2",
-          "items": [
-            {"id": 1,"name": "Food 1","number": 1,"status": "Ready"}, 
-            {"id": 2,"name": "Food 2","number": 3,"status": "Canceled" }, 
-            {"id": 3,"name": "Food 3","number": 3,"status": "Geting prepared" }, 
-            {"id": 4,"name": "Food 4","number": 2,"status": "Delivered"}
-          ]
-        },
-        {
-          "id": 3,
-          "company_Name":"company_Name3",
-          "agent_Name":"agent_Name3",
-          "restaurant_name": "Restaurant 3",
-          "items": [
-            {"id": 1,"name": "Food 1","number": 1,"status": "Ready"}, 
-            {"id": 2,"name": "Food 2","number": 3,"status": "Canceled" }, 
-            {"id": 3,"name": "Food 3","number": 3,"status": "Geting prepared" }, 
-            {"id": 4,"name": "Food 4","number": 2,"status": "Delivered"}
-          ]
-        },
-        {
-          "id": 4,
-          "company_Name":"company_Name4",
-          "agent_Name":"agent_Name4",
-          "restaurant_name": "Restaurant 4",
-          "items": [
-            {"id": 1,"name": "Food 1","number": 1,"status": "Ready"}, 
-            {"id": 2,"name": "Food 2","number": 3,"status": "Canceled" }, 
-            {"id": 3,"name": "Food 3","number": 3,"status": "Geting prepared" }, 
-            {"id": 4,"name": "Food 4","number": 2,"status": "Delivered"}
-          
-          ]
-        },
-        {
-          "id": 5,
-          "company_Name":"company_Name5",
-          "agent_Name":"agent_Name5",
-          "restaurant_name": "Restaurant 5",
-          "items": [
-            {"id": 1,"name": "Food 1","number": 1,"status": "Ready"}, 
-            {"id": 2,"name": "Food 2","number": 3,"status": "Canceled" }, 
-            {"id": 3,"name": "Food 3","number": 3,"status": "Geting prepared" }, 
-            {"id": 4,"name": "Food 4","number": 2,"status": "Delivered"}
-          ]
         }
-      
-    
+    ],
+    "fakecartdata_test": [
+        {
+            "id": 1,
+            "company_Name": "company_Name1",
+            "agent_Name": "agent_Name1",
+            "restaurant_name": "Restaurant 1",
+            "items": [
+                {
+                    "id": 1,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-684x1024.jpg.webp",
+                    "name": "Food 1",
+                    "number": 1,
+                    "status": "Ready"
+                },
+                {
+                    "id": 2,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp",
+                    "name": "Food 2",
+                    "number": 3,
+                    "status": "Canceled"
+                },
+                {
+                    "id": 3,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg.webp",
+                    "name": "Food 3",
+                    "number": 3,
+                    "status": "Geting prepared"
+                },
+                {
+                    "id": 4,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2020/09/tacos-with-pulled-pork-fresh-vegetables-and-cream-768x1024.jpg.webp",
+                    "name": "Food 4",
+                    "number": 2,
+                    "status": "Delivered"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "company_Name": "company_Name2",
+            "agent_Name": "agent_Name2",
+            "restaurant_name": "Restaurant 2",
+            "items": [
+                {
+                    "id": 1,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/11/fresh-beef-burger-takeaway-768x1024.jpg.webp",
+                    "name": "Food 1",
+                    "number": 1,
+                    "status": "Ready"
+                },
+                {
+                    "id": 4,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp",
+                    "name": "Food 4",
+                    "number": 2,
+                    "status": "Delivered"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "company_Name": "company_Name3",
+            "agent_Name": "agent_Name3",
+            "restaurant_name": "Restaurant 3",
+            "items": [
+                {
+                    "id": 1,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg.webp",
+                    "name": "Food 1",
+                    "number": 1,
+                    "status": "Ready"
+                },
+                {
+                    "id": 2,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2020/09/tacos-with-pulled-pork-fresh-vegetables-and-cream-768x1024.jpg.webp",
+                    "name": "Food 2",
+                    "number": 3,
+                    "status": "Canceled"
+                },
+                {
+                    "id": 3,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/11/fresh-beef-burger-takeaway-768x1024.jpg.webp",
+                    "name": "Food 3",
+                    "number": 3,
+                    "status": "Geting prepared"
+                },
+                {
+                    "id": 4,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp",
+                    "name": "Food 4",
+                    "number": 2,
+                    "status": "Delivered"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "company_Name": "company_Name4",
+            "agent_Name": "agent_Name4",
+            "restaurant_name": "Restaurant 4",
+            "items": [
+                {
+                    "id": 1,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/11/fresh-beef-burger-takeaway-768x1024.jpg.webp",
+                    "name": "Food 1",
+                    "number": 1,
+                    "status": "Ready"
+                },
+                {
+                    "id": 2,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2019/04/mae-mu-noodles-vegetables-egg-819x1024.jpg.webp",
+                    "name": "Food 2",
+                    "number": 3,
+                    "status": "Canceled"
+                },
+                {
+                    "id": 3,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-684x1024.jpg.webp",
+                    "name": "Food 3",
+                    "number": 3,
+                    "status": "Geting prepared"
+                },
+                {
+                    "id": 4,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp",
+                    "name": "Food 4",
+                    "number": 2,
+                    "status": "Delivered"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "company_Name": "company_Name5",
+            "agent_Name": "agent_Name5",
+            "restaurant_name": "Restaurant 5",
+            "items": [
+                {
+                    "id": 1,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-684x1024.jpg.webp",
+                    "name": "Food 1",
+                    "number": 1,
+                    "status": "Ready"
+                },
+                {
+                    "id": 2,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/10/carrot-cake-with-fresh-fruits-777x1024.jpg.webp",
+                    "name": "Food 2",
+                    "number": 3,
+                    "status": "Canceled"
+                },
+                {
+                    "id": 3,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg.webp",
+                    "name": "Food 3",
+                    "number": 3,
+                    "status": "Geting prepared"
+                },
+                {
+                    "id": 4,
+                    "imgurl": "https://www.foodiesfeed.com/wp-content/uploads/2020/09/tacos-with-pulled-pork-fresh-vegetables-and-cream-768x1024.jpg.webp",
+                    "name": "Food 4",
+                    "number": 2,
+                    "status": "Delivered"
+                }
+            ]
+        }
     ]
 }

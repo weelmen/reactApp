@@ -40,47 +40,23 @@ const CartScreen = ({ navigation }) => {
                 <View
                     style={{}}
                 >
+                    {fakecartdata_test.map((item,i) => {
+                        return (
 
-                    <CartsCard
+                            <CartsCard
+                                data={item}
+                                imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
+                                company_Name={item.company_Name}
+                                agent_Name={item.agent_Name}
+                                workingTime='8 February 2022  .13:36'
+                                restaurant_name={item.restaurant_name}
+                            />
 
-                        imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                        company_Name="Company Name1"
-                        agent_Name="Agent Name1"
-                        workingTime='8 February 2022  .13:36'
-                        restaurant_name="Restaurant 1"
-                    />
-                    <CartsCard
 
-                        imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                        company_Name="Company Name1"
-                        agent_Name="Agent Name1"
-                        workingTime='8 February 2022  .13:36'
-                        restaurant_name="Restaurant 1"
-                    />
-                    <CartsCard
+                        );
+                    })}
 
-                        imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                        company_Name="Company Name1"
-                        agent_Name="Agent Name1"
-                        workingTime='8 February 2022  .13:36'
-                        restaurant_name="Restaurant 1"
-                    />
-                    <CartsCard
 
-                        imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                        company_Name="Company Name1"
-                        agent_Name="Agent Name1"
-                        workingTime='8 February 2022  .13:36'
-                        restaurant_name="Restaurant 1"
-                    />
-                    <CartsCard
-
-                        imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                        company_Name="Company Name1"
-                        agent_Name="Agent Name1"
-                        workingTime='8 February 2022  .13:36'
-                        restaurant_name="Restaurant 1"
-                    />
                 </View>
 
 
