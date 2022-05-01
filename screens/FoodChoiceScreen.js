@@ -25,9 +25,9 @@ const FoodChoiceScreen = ({ navigation }) => {
     const [choice, setChoice] = useState(
         new Array(fakechoicedata.length).fill(false)
     );
-    
-    
-  
+
+
+
     const total = (price, bool) => {
         if (bool == true) {
             setSumprice(sumprice + price);
@@ -161,37 +161,37 @@ const FoodChoiceScreen = ({ navigation }) => {
                     {fakechoicedata_test.map((item, i) => {
                         return (
                             <View>
-                       <View style={[styles.cardcontainent, { backgroundColor: '#ffffff', paddingLeft: 12, paddingRight: 12, paddingBottom: 10, paddingTop: 10 }]}>
+                                <View style={[styles.cardcontainent, { backgroundColor: '#ffffff', paddingLeft: 12, paddingRight: 12, paddingBottom: 10, paddingTop: 10 }]}>
 
-                        <Text style={styles.text}>{item.name}</Text>
-                        
-
-                        <View
+                                    <Text style={styles.text}>{item.name}</Text>
 
 
-                            style={{
-
-                                flex: 1,
+                                    <View
 
 
-                            }}>
-                            <View style={{
-                                flexDirection: 'row',
-                                alignSelf: "flex-end"
+                                        style={{
+
+                                            flex: 1,
+
+
+                                        }}>
+                                        <View style={{
+                                            flexDirection: 'row',
+                                            alignSelf: "flex-end"
 
 
 
-                            }}><Text style={[styles.text, { fontWeight: "700" }]}>{item.option}</Text>
+                                        }}><Text style={[styles.text, { fontWeight: "700" }]}>{item.option}</Text>
+                                        </View>
+                                    </View>
+
+                                </View>
+                                <CheckBoxList
+                                    data={item}
+                                    total={total}
+                                />
                             </View>
-                        </View>
-                        
-                    </View>
-                   <CheckBoxList
-                    data={item}
-                    total={total}
-                   />
-                  </View>
-                     );
+                        );
                     })}
 
                     <View style={[styles.cardcontainent, { backgroundColor: '#f5f5f5', paddingRight: 12 }]}>

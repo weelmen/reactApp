@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react';
+import React, {Component,useState, useEffect, useRef} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 import Logo from "../icons/check_box_outline_blank_black_24dp.svg";
 import Logo1 from "../icons/autocode.svg";
