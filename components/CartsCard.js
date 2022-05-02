@@ -89,7 +89,7 @@ export default class CartsCard extends React.Component {
                                             paddingRight: '2%'
 
                                         }}
-                                        onPress={() => { }}
+                                        onPress={() => { this.props.navigations.navigate('Confirm Order Screen')}}
                                     >
 
                                         <Text

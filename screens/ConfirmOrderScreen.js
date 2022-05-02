@@ -5,6 +5,7 @@ import { SearchBar, Button, Divider, Card } from 'react-native-elements';
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard"
+import MapView from 'react-native-maps';
 
 
 
@@ -27,41 +28,60 @@ async function load(name) {
     }
 
 }*/
-const CartScreen = ({ navigation }) => {
+const ConfirmOrderScreen = ({ navigation }) => {
 
 
     /* load("test1")*/
 
     return (
 
-        <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+        <View style={{ backgroundColor: '#fcfcfc', flex: 1, padding: '5%' }}>
 
-            <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
+
+            <View
+                style={{ backgroundColor: '#f5f5f5', height: '30%' }}
+            >
+                <Text
+                    style={{ margin: 10, alignSelf: 'center', color: '#6357ff', fontWeight: '500', fontSize: 16 }}
+                >Add note for the chef ? *</Text>
                 <View
-                    style={{}}
+                    style={{ backgroundColor: '#f0f0f0', height: '60%', margin: '5%' }}
                 >
-                    {fakecartdata_test.map((item,i) => {
-                        return (
-
-                            <CartsCard
-                                data={item}
-                                imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                                company_Name={item.company_Name}
-                                agent_Name={item.agent_Name}
-                                workingTime='8 February 2022  .13:36'
-                                restaurant_name={item.restaurant_name}
-                                navigations={navigation}
-                            />
+                    <TextInput
+                        style={{ alignSelf: 'center' }}
+                        placeholder='Write your note here...'
+                        placeholderTextColor='#c4c3cb'
+                    >
+                    </TextInput>
 
 
-                        );
-                    })}
 
 
                 </View>
 
 
-            </ScrollView>
+
+
+
+
+            </View>
+            <View
+                style={{ backgroundColor: '#f5f5f5', height: '60%' ,marginTop:'5%'}}
+            >
+              
+
+
+
+            
+
+
+
+
+
+
+            </View>
+
+
 
 
         </View>
@@ -131,6 +151,6 @@ const styles = StyleSheet.create({
 
     }
 });
-export default CartScreen;
+export default ConfirmOrderScreen;
 
 
