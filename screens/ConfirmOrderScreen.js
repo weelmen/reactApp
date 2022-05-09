@@ -5,8 +5,8 @@ import { SearchBar, Button, Divider, Card } from 'react-native-elements';
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard"
-import MapView from 'react-native-maps';
-
+//import MapView from 'react-native-maps';
+//import com.airbnb.android.react.maps.MapsPackage;
 
 
 /*
@@ -28,7 +28,7 @@ async function load(name) {
     }
 
 }*/
-const ConfirmOrderScreen = ({ navigation }) => {
+const ConfirmOrderScreen = ({ navigation,price }) => {
 
 
     /* load("test1")*/
@@ -39,16 +39,16 @@ const ConfirmOrderScreen = ({ navigation }) => {
 
 
             <View
-                style={{ backgroundColor: '#f5f5f5', height: '30%' }}
+                style={{ backgroundColor: '#f5f5f5', height: '31%', borderRadius: 8 }}
             >
                 <Text
                     style={{ margin: 10, alignSelf: 'center', color: '#6357ff', fontWeight: '500', fontSize: 16 }}
                 >Add note for the chef ? *</Text>
                 <View
-                    style={{ backgroundColor: '#f0f0f0', height: '60%', margin: '5%' }}
+                    style={{ alignSelf: 'auto', backgroundColor: '#f0f0f0', height: '66%', margin: '3%', borderRadius: 8 }}
                 >
                     <TextInput
-                        style={{ alignSelf: 'center' }}
+                        style={{ alignSelf: 'center', fontWeight: '600', fontSize: 15 }}
                         placeholder='Write your note here...'
                         placeholderTextColor='#c4c3cb'
                     >
@@ -66,21 +66,47 @@ const ConfirmOrderScreen = ({ navigation }) => {
 
             </View>
             <View
-                style={{ backgroundColor: '#f5f5f5', height: '60%' ,marginTop:'5%'}}
+                style={{ height: '80%', marginTop: '5%' }}
             >
-              
-
-
-
-            
-
-
+                <View
+                    style={{ backgroundColor: '#f5f5f5', height: '60%', borderRadius: 8 }}
+                >
 
 
 
 
+
+
+
+
+
+
+
+                </View>
+
+                <View
+                    style={{ height: '40%'}}
+                >
+                    <Button
+                        buttonStyle={{
+                            backgroundColor: '#6357ff',
+                            borderRadius: 5,
+                            marginTop:'5%',
+                            marginLeft: "4%",
+                            marginRight: "4%",
+                            fontWeight:'400'
+                        }} title={`Confirm order  (${price='undefined'?0:price} TND)`}
+
+                    />
+                    <Pressable>
+                    <Text
+                    style={{alignSelf:'center',color:"#6357ff",fontSize:13,marginTop:'3%'}}
+                    >Cancel order</Text>
+
+                    </Pressable>
+
+                </View>
             </View>
-
 
 
 

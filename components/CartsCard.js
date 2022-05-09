@@ -1,10 +1,138 @@
-import React from "react";
-import { Icon, Card } from "react-native-elements";
+import React, { useState } from "react";
+import { Icon, Card, Button, Divider } from "react-native-elements";
 import { AirbnbRating, Pressable, StyleSheet, View, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import style from "../screens/style";
+import ThemedListItem from "react-native-elements/dist/list/ListItem";
+
+function GetTotalPrice(data) {
+    let total = 0;
+    data.filter(item => {
+        item.price !== 0 ? total = (total + (item.price * item.number)) : NaN
+    })
+    console.log("total =====", total);
+    return (total)
+};
+function click(test) {
+
+    console.log("total =====", test);
+
+};
+const AdditionalJSX = (props) => {
+    const [deliveryfee, setDeliveryfee] = useState(4);
+    return (
+        <View>
 
 
+            <Divider style={{ marginLeft: 12, marginRight: 12, marginTop: 12 }} color="#8d84fc" width={1} />
+            <View>
+                <View
+                    style={[{
+                        flex: 1,
+                        flexDirection: "row",
+
+                        // height:50,
+                        // margin: 2
+                    }, styles.container]}>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-start',
+
+                            //marginRight: '2%',
+                            marginLeft: '2%'
+
+                        }}>
+                        <Text
+                            style={{ color: '#6357ff' }}>Initial price</Text>
+
+                    </View>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-end',
+                            alignSelf: 'center'
+                        }}>
+                        <Text>{props.InitialPrice} TND</Text>
+                    </View>
+
+
+                </View>
+                <View
+                    style={[{
+                        flex: 1,
+                        flexDirection: "row",
+
+                        // height:50,
+                        // margin: 2
+                    }, styles.container]}>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-start',
+
+                            //marginRight: '2%',
+                            marginLeft: '2%'
+
+                        }}>
+                        <Text
+                            style={{ color: '#6357ff' }}>Delivery fee</Text>
+
+                    </View>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-end',
+                            alignSelf: 'center'
+                        }}>
+                        <Text>{deliveryfee} TND</Text>
+                    </View>
+
+
+                </View>
+                <View
+                    style={[{
+                        flex: 1,
+                        flexDirection: "row",
+
+                        // height:50,
+                        // margin: 2
+                    }, styles.container]}>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-start',
+
+                            //marginRight: '2%',
+                            marginLeft: '2%'
+
+                        }}>
+                        <Text
+                            style={{ color: '#6357ff' }}>Total price</Text>
+
+                    </View>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'flex-end',
+                            alignSelf: 'center'
+                        }}>
+                        <Text>{props.InitialPrice + deliveryfee} TND</Text>
+                    </View>
+
+
+                </View>
+
+
+
+            </View>
+
+
+        </View>
+
+    );
+
+}
 export default class CartsCard extends React.Component {
 
     render() {
@@ -81,15 +209,17 @@ export default class CartsCard extends React.Component {
                                             }}
                                         >{this.props.company_Name}</Text>
                                     </View>
+                                    {this.props.Hidedetails ? (<View>
 
-                                    <Pressable
+                                    </View>
+                                    ) : (<Pressable
                                         style={{
                                             flex: 1,
                                             alignItems: 'flex-end',
                                             paddingRight: '2%'
 
                                         }}
-                                        onPress={() => { this.props.navigations.navigate('Confirm Order Screen')}}
+                                        onPress={() => { this.props.navigations.navigate('Confirm Order Screen') }}
                                     >
 
                                         <Text
@@ -101,8 +231,8 @@ export default class CartsCard extends React.Component {
                                             }}
                                         >See details</Text>
 
-                                    </Pressable>
-
+                                    </Pressable>)
+                                    }
                                 </View>
                                 <Text
                                     style={{
@@ -127,7 +257,7 @@ export default class CartsCard extends React.Component {
                 </View>
 
                 <View
-                style={ {marginBottom: '3%',}}
+                    style={{ marginBottom: '3%', }}
                 >
 
                     <Text style={{
@@ -173,7 +303,7 @@ export default class CartsCard extends React.Component {
                                     <Text
                                         style={{ color: '#424242' }}>x{sub.number} {sub.name}</Text>
                                     <Text
-                                        style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>16.5 TND</Text>
+                                        style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>{sub.price} TND</Text>
                                 </View>
                                 <View
                                     style={{
@@ -182,7 +312,7 @@ export default class CartsCard extends React.Component {
                                         alignSelf: 'center'
                                     }}>
                                     <Text
-                                        style={[{ fontSize: 15, fontWeight: "500" }, (sub.status == "Ready" || sub.status == "Delivered") ?
+                                        style={[{ fontSize: 14, fontWeight: "400" }, (sub.status == "Ready" || sub.status == "Delivered") ?
                                             styles.green :
                                             (sub.status == "Canceled") ?
                                                 styles.red :
@@ -191,8 +321,16 @@ export default class CartsCard extends React.Component {
                                 </View>
 
                             </View>
+
                         );
                     })}
+                    {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
+                        (<View></View>)
+
+
+
+                    }
+
 
                 </View>
 
@@ -208,8 +346,42 @@ export default class CartsCard extends React.Component {
 
         );
     }
+}
+export class ConfirmButtonCartsCard extends React.Component {
+
+    render() {
 
 
+        return (
+
+            <View>
+                <Button
+                    onPress={this.props.onPressConfirm}
+                    buttonStyle={{
+                        backgroundColor: '#6357ff',
+                        borderRadius: 5,
+                        marginTop: '5%',
+                        marginLeft: "8%",
+                        marginRight: "8%",
+                        fontWeight: '400'
+                    }} title={`Confirm order  (${this.props.price} TND)`}
+
+                />
+                <Pressable
+                    onPress={this.props.onPressCancel}
+                >
+                    <Text
+                        style={{ alignSelf: 'center', color: "#6357ff", fontSize: 13, marginTop: '3%' }}
+                    >Cancel order</Text>
+
+                </Pressable>
+
+
+            </View>
+
+
+        );
+    }
 
 
 
@@ -260,6 +432,5 @@ const styles = StyleSheet.create({
     blue: {
         color: '#847bfd',
     },
-
 
 });
