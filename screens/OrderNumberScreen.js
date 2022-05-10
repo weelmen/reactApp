@@ -7,7 +7,7 @@ import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import CartsCard from "../components/CartsCard";
 import ConfirmOrderScreen from "./ConfirmOrderScreen";
 import { ConfirmButtonCartsCard } from "../components/CartsCard";
-
+import  DeliveryCard  from "../components/DeliveryCard"
 //let [confirmON, setConfirmON] = useState(false);
 function GetTotalPrice(data) {
     let total = 0;
@@ -56,9 +56,9 @@ const OrderNumberScreen = ({ navigation, price }) => {
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
                                     Hidedetails={true}
-                                    ShowPriceDetails={[true,GetTotalPrice(item.items)]}
+                                    ShowPriceDetails={[true, GetTotalPrice(item.items)]}
                                     navigations={navigation}
-                                    
+
                                 />
 
 
@@ -72,7 +72,7 @@ const OrderNumberScreen = ({ navigation, price }) => {
 
 
                     })}
-
+                    <DeliveryCard />
 
                 </View>
 

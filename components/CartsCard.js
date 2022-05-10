@@ -142,8 +142,8 @@ export default class CartsCard extends React.Component {
 
             <Card containerStyle={{
 
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
+                borderRadius: 10,
+               // borderTopRightRadius: 10,
                 borderWidth: 0,
                 paddingTop: 0,
                 paddingBottom: 0,
@@ -151,8 +151,8 @@ export default class CartsCard extends React.Component {
                 paddingRight: 0,
             }} wrapperStyle={{
                 backgroundColor: '#f5f5f5',
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
+                borderRadius: 10,
+               // borderTopRightRadius: 10,
             }}>
 
 
