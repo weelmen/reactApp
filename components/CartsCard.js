@@ -309,7 +309,8 @@ export default class CartsCard extends React.Component {
                                     style={{
                                         flex: 1,
                                         alignItems: 'flex-end',
-                                        alignSelf: 'center'
+                                        alignSelf: 'center',
+                                      
                                     }}>
                                     <Text
                                         style={[{ fontSize: 14, fontWeight: "400" }, (sub.status == "Ready" || sub.status == "Delivered") ?

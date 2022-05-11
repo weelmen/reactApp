@@ -7,8 +7,13 @@ import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import CartsCard from "../components/CartsCard";
 import ConfirmOrderScreen from "./ConfirmOrderScreen";
 import { ConfirmButtonCartsCard } from "../components/CartsCard";
-import  DeliveryCard  from "../components/DeliveryCard"
-//let [confirmON, setConfirmON] = useState(false);
+import DeliveryCard from "../components/DeliveryCard"
+import Drawer from 'react-native-drawer'
+import { Swipeable, GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { SwipeItem, SwipeButtonsContainer, SwipeProvider } from 'react-native-swipe-item';
+
+
 function GetTotalPrice(data) {
     let total = 0;
     data.filter(item => {
@@ -35,12 +40,76 @@ function onPressFunction(test) {
 
 const OrderNumberScreen = ({ navigation, price }) => {
     const [data, setData] = useState();
+    const [test, setTest] = useState("NO");
 
+
+    const rightButton = (
+
+        <SwipeButtonsContainer>
+            <View style={{/* flex: 1, flexDirection: 'row',/* backgroundColor: 'red',alignItems:'center'*/ /*height: 100*/ }}
+            >
+                <View style={{
+
+                    flex: 1,
+                    alignContent: 'center',
+
+
+                       backgroundColor: '#fa7d9b'
+                }}
+                >
+                    <Pressable style={{
+                       // backgroundColor: '#ffa457',
+                        //   borderRadius: 5,
+                        //    height: 45,
+                        marginLeft: 30,
+                        marginRight: 30,
+                        marginTop: 10,
+                    //    backgroundColor: "red"
+
+                    }}>
+                        <Text>1</Text>
+                    </Pressable>
+
+                </View>
+                <View style={{
+
+                    flex: 1,
+                    alignContent: 'center',
+
+                       backgroundColor: '#7dff9b'
+                }}
+                >
+                    <Pressable style={{
+                      //  backgroundColor: '#ffa457',
+                        //    borderRadius: 5,
+                        //    height: 45,
+                        marginLeft: 30,
+                        marginRight: 30,
+                        marginTop: 10,
+                    //    backgroundColor:"blue"
+
+                    }} >
+                        <Text>2</Text>
+                    </Pressable>
+
+                </View>
+            </View>
+
+
+        </SwipeButtonsContainer>
+    
+    );
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
+
+
+
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
+
+
+                
                 <View
                     style={{}}
                 >
@@ -72,13 +141,32 @@ const OrderNumberScreen = ({ navigation, price }) => {
 
 
                     })}
+
+
+
+
+
+
+
+
+
+
                     <DeliveryCard />
+                    <DeliveryCard />
+                    <DeliveryCard />
+
 
                 </View>
 
+
+
+
+
             </ScrollView>
 
-
+            <View style={{ backgroundColor: 'white', height: 40 }}>
+                <Text style={{ color: 'red' }}>  {test} Button clicked</Text>
+            </View>
         </View>
 
 
@@ -87,8 +175,24 @@ const OrderNumberScreen = ({ navigation, price }) => {
 }
 
 const styles = StyleSheet.create({
+    button: {
+        width: '100%',
+        height: 100,
+        // alignSelf: 'center',
+        //  marginVertical: 5,
+        //flexDirection: 'row',
+    }, swipeContentContainerStyle: {
+        flex: 1,
+        //justifyContent: 'center',
+        // alignItems: 'center',
+        // backgroundColor: '#ffffff',
+        // borderRadius: 10,
+        // borderColor: '#e3e3e3',
+        //borderWidth: 1,
+    },
     container: {
-        marginTop: 40,
+        marginTop: 20,
+        marginBottom: 20,
         alignItems: 'center',
         justifyContent: 'center',
 
