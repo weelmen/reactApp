@@ -2,34 +2,95 @@ import React, { useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from "./style";
 import { ScrollView, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
-import { ButtonGroup, SearchBar, Button, Icon, Divider } from 'react-native-elements';
+import { ButtonGroup, SearchBar, Button, Icon, Divider , Card} from 'react-native-elements';
 import MenuCard from "../components/Menuscard";
 import Searchbar from "../components/Searchbar";
 import { authUser } from "../controller/user.controller";
+import NavBar from "../components/Navbar";
+import ButtonsGroup from "../components/ButtonsGroup";
+import Restaurantscard from "../components/Restaurantscard";
 //import get from "../controller/user.controller";
 //import { Axios } from "axios";
 
-import {fakemenusdata} from '../api-json-server/fakedata.json'
+import { fakemenusdata} from '../api-json-server/fakedata.json'
+import {fakerestaurantsdata } from '../api-json-server/fakedata.json'
+
+import RestaurantsScreen from "./RestaurantsScreen";
+
+const DATA = [
+    {
+        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        title: "All",
+        default:true
+    },
+    {
+        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        title: "Pizza",
+        default:false
+    },
+    {
+        id: "58694a0f-3da1-471f-bd96-145571e29d72",
+        title: "Burguer",
+        default:false
+    },
+    {
+        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba1",
+        title: "Tacos",
+        default:false
+    },
+    {
+        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f632",
+        title: "Sandwich",
+        default:false
+    },
+    {
+        id: "58694a0f-3da1-471f-bd96-145571e29d723",
+        title: "Mlawi",
+        default:false
+    },
+    {
+        id: "43ac68afc-c605-48d3-a4f8-fbd91aa97f632",
+        title: "Makloub",
+        default:false
+    },
+    {
+        id: "158694a0f-3da1-471f-bd96-145571e29d723",
+        title: "Malfouf",
+        default:false
+    },
+    {
+        id: "23ac68afc-c605-48d3-a4f8-fbd91aa97f632",
+        title: "Kalzonie",
+        default:false
+    },
+    {
+        id: "358694a0f-3da1-471f-bd96-145571e29d723",
+        title: "Baguette farcie",
+        default:false
+    },
+];
 
 
-import image1 from "../images/Menu1.jpg"
-import image2 from "../images/Menu2.jpg"
-import image3 from "../images/Menu3.jpg"
-import image4 from "../images/Menu4.jpg"
-import image5 from "../images/Menu5.jpg"
-import image6 from "../images/Menu6.jpg"
-//const menusdata = [];
-//let [fakemenusdata, setfakemenusdata] =useState([]);
-//let fakemenusdata = useState('');
+function byID(idToSearch ,dt) {
+    return dt.filter(item => {
+    console.log(item)
+        return item.id === idToSearch
+    
+    })
+};
+
+
+
+
 const axios = require('axios');
 axios.get('https://my-json-server.typicode.com/weelmen/fakedata/fakemenusdata', {
     params: { /*"id": 6*/ }
 })
     .then(function (response) {
-        
+
         setfakemenusdata = response;
         console.log(fakemenusdata);
-       
+
     })
     .catch(function (error) {
         console.log(error);
@@ -39,13 +100,14 @@ axios.get('https://my-json-server.typicode.com/weelmen/fakedata/fakemenusdata', 
 const MenusScreen = ({ navigation }) => {
     //  const axios = require('axios').default;
     //let [responseData, setResponseData] = React.useState('')
+    
     const [texts, setTexts] = useState('');
     const [showLoginPassword, setShowLoginPassword] = useState(false);
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
-    const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#ffa457' : '#000'} />;
-    const component2 = () => <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#ffa457' : '#000'} />;
+    const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
+    const component2 = () => <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />;
     // Make a request for a user with a given ID
     /*  const data=await axios.get('http://localhost:3000/fakemenusdata?id=1');
          console.log(data)*/
@@ -54,30 +116,26 @@ const MenusScreen = ({ navigation }) => {
     return (
 
         <View style={{ backgroundColor: 'white', flex: 1 }}>
-            <View style={{ borderRadius: 10, backgroundColor: 'white', flex: 2 /*,marginLeft:"-4%"*/ }}>
 
-                <Searchbar />
-                <ButtonGroup
+            
+            <NavBar />
 
-                    buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '16.66%'/* ,width:'16%'*/ }}
-                    selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
-                    selectedTextStyle={{ color: '#ffa457' }}
-                    buttons={['All', 'Burgues', 'Burgues', 'Burgues', 'Burgues', 'Burgues']}
-                    selectedIndex={selectedUpperIndex}
-                    onPress={(value) => {
-                        setSelectedUpperIndex(value);
-                    }}
-                    textStyle={{ fontSize: 14, color: 'lightgrey' }}
-                    containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
+            <ButtonsGroup
+                Data={DATA}
+                selected={DATA[0].id}
+            />
 
-                />
-                <View>
+            <View style={{ flex: 1 }}>
+                <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
 
-                </View>
+                {byID(3,fakerestaurantsdata).map((item, i) => {
+                    return(
+                <Restaurantscard  key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                )
+            })}
+                    
+                    <Searchbar />
 
-            </View>
-            <View style={{ flex: 10 }}>
-                <ScrollView style={{ backgroundColor: '#f7f7f7' }}>
                     <View style={{
                         flex: 1,
                         flexDirection: "row",
@@ -97,9 +155,11 @@ const MenusScreen = ({ navigation }) => {
 
 
                     </View>
+
                 </ScrollView>
+
             </View>
-            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white', flex: 1 }}>
+            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white' }}>
 
                 <ButtonGroup
 

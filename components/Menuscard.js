@@ -17,7 +17,7 @@ export default class MenuCard extends React.Component {
     //  };
     // 
     render() {
-        const { imagesrc = "../images/menu1.jpeg",
+    /*    const { imagesrc = "../images/menu1.jpeg",
             restaurantName = "Restaurant's Name",
             workingTime = '',
             pressedFavorite = true } = this.props;
@@ -25,7 +25,7 @@ export default class MenuCard extends React.Component {
         //      const { Imagesrc, } = this.state;
         // state.Imagesrc=this.props.imagesrc;
         //    const { imagesrc } = this.state;
-        //   const {favorite} = this.state;
+        //   const {favorite} = this.state;*/
         // const favorite = this.state.pressedFavorite ? 'heart-alt' : 'heart';
         return (
 
@@ -44,7 +44,7 @@ export default class MenuCard extends React.Component {
                 minWidth: '44%',
                 //maxHeight:'30%'
             }} wrapperStyle={{
-                backgroundColor: '#e8e9e8',
+                backgroundColor: '#f5f5f5',
                 borderTopLeftRadius: 10,
                 borderTopRightRadius: 10,
             }}>
@@ -84,6 +84,7 @@ export default class MenuCard extends React.Component {
                                     flexShrink: 0,
                                     flexBasis: 100,
                                     marginBottom: 5,
+                                    color:"#434343"
                                 }}>Asian, chinese food</Text>
 
                             </View>
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
     text: {
 
 
-        color: '#ffa457',
+        color: '#6258ff',
         fontSize: 14,
         fontWeight: "600",
         marginBottom: 5,

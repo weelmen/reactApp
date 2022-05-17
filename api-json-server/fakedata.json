@@ -20,8 +20,23 @@
     "fakerestaurantsdata": [
         {
             "id": 1,
-            "name": "mcdonalds",
-            "profilesrcimg": "ReactNativeApp1/images/menu1.jpeg"
+            "restaurantname": "mcdonalds",
+            "imagesrc": "https://pbs.twimg.com/media/BDdJeITCcAAoELO.jpg"
+        },
+        {
+            "id": 2,
+            "restaurantname": "mcdonalds",
+            "imagesrc": "https://pbs.twimg.com/media/BDdJeITCcAAoELO.jpg"
+        },
+        {
+            "id": 3,
+            "restaurantname": "mcdonalds",
+            "imagesrc": "https://pbs.twimg.com/media/BDdJeITCcAAoELO.jpg"
+        },
+        {
+            "id": 4,
+            "restaurantname": "mcdonalds",
+            "imagesrc": "https://pbs.twimg.com/media/BDdJeITCcAAoELO.jpg"
         }
     ],
     "fakemenusdata": [

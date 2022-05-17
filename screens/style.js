@@ -71,7 +71,7 @@ loginFormTextInput: {
 
 },
 loginButton: {
-  backgroundColor: '#ffa457',
+  backgroundColor: '#6357ff',
   borderRadius: 5,
   height: 45,
   marginLeft: 30,

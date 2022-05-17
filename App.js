@@ -15,13 +15,16 @@
  import CartScreen from './screens/CartScreen';
  import ConfirmOrderScreen from './screens/ConfirmOrderScreen';
  import ConfirmOrderScreen1 from './screens/ConfirmOrderScreen1';
- import OrderNumberScreen from './screens/OrderNumberScreen'
+ import OrderNumberScreen from './screens/OrderNumberScreen';
+ import DeliveryScreen from './screens/DeliveryScreen';
+ import TestScreen from './screens/TestScreen';
+
  const Stack = createStackNavigator();
  const App = () => {
    return (
      
        <NavigationContainer>
-         <Stack.Navigator initialRouteName="Order Number Screen">
+         <Stack.Navigator initialRouteName="Menus Screen">
            <Stack.Screen name="Sign In" component={LoginScreen} />
            <Stack.Screen name="Sign Up" component={RegisterScreen} />
            <Stack.Screen name="Sign Up2" component={SignupScreen} />
@@ -33,6 +36,8 @@
            <Stack.Screen name="Confirm Order Screen" component={ConfirmOrderScreen} />
            <Stack.Screen name="Confirm Order Screen 1" component={ConfirmOrderScreen1} />
            <Stack.Screen name="Order Number Screen" component={OrderNumberScreen} />
+           <Stack.Screen name="Delivery Screen" component={DeliveryScreen} />
+           <Stack.Screen name="Test Screen" component={TestScreen} />
          </Stack.Navigator>
        </NavigationContainer>
     

@@ -16,69 +16,111 @@ export default class DeliveryCard extends React.Component {
             Right1: "Pending",
             Right2: "1.3 km 23 min",
             Right3: "4 TND",
+            Swipe: false
 
         };
 
     }
+    updateState(state, mode) {
+        // Changing state 
+        if ((state.Swipe == false && mode == "ON") || (state.Swipe == true && mode == "OFF")) {
 
-    render() {
-
-
-        const rightButton = (
-
-            <SwipeButtonsContainer style={{ borderRadius: 0}}>
+            this.setState({ ...state, Swipe: !state.Swipe })
+            /*   console.log("test");
+               console.log(this.state.Swipe);/*/
+        }
+        // console.log("test");
+    }
+    /*  updateState1(state,mode){ 
+          // Changing state 
+          if((!state.Swipe&&mode=="ON")||(state.Swipe&&mode=="OFF")){
+              console.log(this.state.Swipe);
+              this.setState({...state,Swipe:!state.Swipe})
+              console.log("test");
+              console.log(this.state.Swipe);
+        }
+         // console.log("test");
+      }*/
+    rightButton(onPressDelete, onPressConfirm) {
+        return (
+            <SwipeButtonsContainer style={{ borderRadius: 0 }}>
                 <View style={{/* flex: 1,*/ flexDirection: 'row',  /*borderRadius: 10, backgroundColor: 'red',alignItems:'center'*/ height: 100 }}
                 >
-                    <View style={{
+                    <Pressable style={{
 
-                        flex: 1,
-                        alignContent: 'center',
-                        borderTopLeftRadius:5,
-                        borderBottomLeftRadius:5,
-                       
-                        backgroundColor: '#fa7d9b',
-                       // borderRadius: 10,
-                        marginTop: 5,
-                        marginBottom: 5,
-                     //   marginRight:5
-                     marginLeft:-15
-                        //margin:20
-                    }}
-                    >
-                        <Pressable style={{
-                         margin:20
-                        }}>
-                            <Text>1</Text>
-                        </Pressable>
+                    }} onPress={onPressDelete}>
+                        <View style={[this.state.Swipe ? styles.swipebuttonON : styles.swipebuttonOFF, {
 
-                    </View>
-                    <View style={[{
+                            flex: 1,
 
-                        flex: 1,
-                        alignContent: 'center',
-                        borderTopRightRadius:5,
-                        borderBottomRightRadius:5,
-                        backgroundColor: '#7dff9b',
-                       // borderRadius: 10,
-                        //   borderTopRightRadius: 10,
-                        marginTop: 5,
-                        marginBottom: 5,
-                        marginRight:5
-                    }/*,styles.container*/]}
-                    >
-                        <Pressable style={{
-                        margin:20
-                        }} >
-                            <Text>2</Text>
-                        </Pressable>
+                            alignItems: 'center',
 
-                    </View>
+                            flexDirection: 'row',
+                            backgroundColor: '#fa7d9b',
+                            // borderRadius: 10,
+                            marginTop: 5,
+                            marginBottom: 3,
+                            //   marginRight:5
+                            marginLeft: -15,
+
+                            //margin:20
+                        }]}
+                        >
+
+
+                            <Icon
+                                style={{ marginLeft: 10, marginRight: 10 }}
+                                name='close'
+                                type='font-awesome'
+                                size={30}
+                                color={'#6357ff'}
+                            />
+
+
+
+                        </View>
+                    </Pressable>
+                    <Pressable style={{
+
+                    }} onPress={onPressConfirm}>
+                        <View style={[{
+
+                            flex: 1,
+
+                            alignItems: 'center',
+
+                            flexDirection: 'row',
+                            borderTopRightRadius: 5,
+                            borderBottomRightRadius: 5,
+                            backgroundColor: '#7dff9b',
+                            // borderRadius: 10,
+                            //   borderTopRightRadius: 10,
+                            marginTop: 5,
+                            marginBottom: 3,
+                            marginRight: 5
+                        }/*,styles.container*/]}
+                        >
+
+                            <Icon
+                                style={{ marginLeft: 10, marginRight: 10 }}
+                                name='check'
+                                type='font-awesome'
+                                size={30}
+                                color={'#6357ff'}
+                            />
+
+
+                        </View>
+                    </Pressable>
                 </View>
 
 
             </SwipeButtonsContainer>
-
         );
+    };
+    render() {
+
+
 
         return (
 
@@ -87,22 +129,18 @@ export default class DeliveryCard extends React.Component {
                     <SwipeItem
                         style={[{ borderRadius: 20, flex: 1 }]}
                         swipeContainerStyle={{ borderRadius: 20, }}/*[styles.swipeContentContainerStyle]}*/
-                        rightButtons={rightButton}
-                        disableSwipeIfNoButton={true}
+                        rightButtons={this.rightButton(this.props.onPressDelete, this.props.onPressConfirm)}
+                        //  disableSwipeIfNoButton={true}
+                        onRightButtonsShowed={() => this.updateState(this.state, "ON")}
+                        onMovedToOrigin={() => this.updateState(this.state, "OFF")}
                         /* leftButtons={}*/>
 
 
 
 
+                        <Card containerStyle={[this.state.Swipe ? styles.swipeON : styles.swipeOFF, {
 
 
-
-
-
-
-                        <Card containerStyle={{
-
-                            borderRadius: 10,
                             //   borderTopRightRadius: 10,
                             borderWidth: 0,
                             paddingTop: 0,
@@ -111,11 +149,11 @@ export default class DeliveryCard extends React.Component {
                             paddingRight: 0,
                             marginTop: 5,
                             marginBottom: 5
-                        }} wrapperStyle={{
+                        }]} wrapperStyle={[this.state.Swipe ? styles.swipeON : styles.swipeOFF, {
                             backgroundColor: '#f5f5f5',
-                            borderRadius: 10,
+
                             //  borderTopRightRadius: 10,
-                        }}>
+                        }]}>
                             <View style={styles.container}>
 
 
@@ -248,8 +286,16 @@ export default class DeliveryCard extends React.Component {
 }
 
 
+/*
+const updateState=(state,mode)=>{ 
+    // Changing state 
+   /* if((!state.Swipe&&mode=="ON")||(state.Swipe&&mode=="OFF")){
+    this.setState({...state,Swipe:!state.Swipe})*/
+/* console.log("test");/*
+//}
 
-
+} ;
+*/
 
 
 const styles = StyleSheet.create({
@@ -301,6 +347,32 @@ const styles = StyleSheet.create({
     },
     blue: {
         color: '#847bfd',
+    },
+    swipeON: {
+        borderRadius: 0,
+  
+        /*  borderBottomRightRadius:0,
+          borderTopRightRadius:0,
+          borderBottomLeftRadius:10,
+          borderTopLeftRadius:10*/
+    },
+    swipeOFF: {
+
+
+        borderRadius: 10,
+
+    },
+    swipebuttonON: {
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+
+    },
+    swipebuttonOFF: {
+
+
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
+
     },
 
 });

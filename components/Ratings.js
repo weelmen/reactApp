@@ -16,8 +16,8 @@ export default class Ratings extends React.Component {
           imageSize={starImageSize}
          // readonly
           startingValue={3.65}
-          ratingColor='#ffa457'
-          ratingTextColor='#ffa457'
+          ratingColor='#6357ff'
+          ratingTextColor='#6357ff'
           ratingBackgroundColor='transparent'
           
         tintColor='#e8e9e8'

@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, Pressable, Keyboard, StyleSheet, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
 import { SearchBar, Button, Divider, Card } from 'react-native-elements';
-
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
-//import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard";
-
 import DeliveryCard from "../components/DeliveryCard"
-
 
 
 function GetTotalPrice(data) {
@@ -26,15 +22,20 @@ function byID(idToSearch) {
         consol.log(item);
     })
 };
+function onPressFunction(test) {
+
+    console.log("test >>", test);
 
 
+};
 
-const OrderNumberScreen = ({ navigation, price }) => {
+
+const DeliveryScreen = ({ navigation, price }) => {
     const [data, setData] = useState();
+    const [test, setTest] = useState("NO");
 
 
 
-   
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
@@ -49,35 +50,11 @@ const OrderNumberScreen = ({ navigation, price }) => {
                 <View
                     style={{}}
                 >
-                    {byID(2).map((item, i) => {
-                        () => setData(item);
-                        return (
-                            <View>
-                                <CartsCard
-                                    data={item}
-                                    imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
-                                    company_Name={item.company_Name}
-                                    agent_Name={item.agent_Name}
-                                    workingTime='8 February 2022  .13:36'
-                                    restaurant_name={item.restaurant_name}
-                                    Hidedetails={true}
-                                    ShowPriceDetails={[true, GetTotalPrice(item.items)]}
-                                    navigations={navigation}
-
-                                />
-
-
-
-
-
-                            </View>
-
-                        );
-
-
-
-                    })}
-
+                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
+                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
+                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
+                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
+                   
 
 
                 </View>
@@ -88,7 +65,9 @@ const OrderNumberScreen = ({ navigation, price }) => {
 
             </ScrollView>
 
-
+            <View style={{ backgroundColor: 'white', height: 40 }}>
+                <Text style={{ color: 'red' }}>  {test} Button clicked</Text>
+            </View>
         </View>
 
 
@@ -97,7 +76,21 @@ const OrderNumberScreen = ({ navigation, price }) => {
 }
 
 const styles = StyleSheet.create({
- 
+    button: {
+        width: '100%',
+        height: 100,
+        // alignSelf: 'center',
+        //  marginVertical: 5,
+        //flexDirection: 'row',
+    }, swipeContentContainerStyle: {
+        flex: 1,
+        //justifyContent: 'center',
+        // alignItems: 'center',
+        // backgroundColor: '#ffffff',
+        // borderRadius: 10,
+        // borderColor: '#e3e3e3',
+        //borderWidth: 1,
+    },
     container: {
         marginTop: 20,
         marginBottom: 20,
@@ -159,4 +152,4 @@ const styles = StyleSheet.create({
 
     }
 });
-export default OrderNumberScreen;
+export default DeliveryScreen;
