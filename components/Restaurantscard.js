@@ -8,35 +8,25 @@ import style from "../screens/style";
 
 export default class Restaurantscard extends React.Component {
     state = {
-        imagesrc: '',
-        restaurantName: '',
-        workingTime: '',
         pressedFavorite: true
     };
-    
+
     render() {
-        const { imagesrc } = this.state;
-     //   const {favorite} = this.state;
-        const favorite = this.state.pressedFavorite? 'heart-alt' : 'heart';
+        /* const { imagesrc = "",
+             restaurantName = "Restaurant's Name",
+             workingTime = '',
+             /*pressedFavorite = true *//* } = this.props;*/
+        //const { imagesrc } = this.state;
+        //  const {favorite} = this.state;
+        const favorite = this.state.pressedFavorite ? 'heart-alt' : 'heart';
         return (
 
-            <Card containerStyle={{
+            <Card key={this.props.id} 
+            containerStyle={this.props.showimage ?styles.containerStyle: styles.containerStyleWithoutimage} 
+            wrapperStyle={this.props.showimage ?styles.wrapperStyle: styles.containerStyleWithoutimage}>
 
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                borderWidth: 0,
-                paddingTop: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                paddingRight: 0,
-            }} wrapperStyle={{
-                backgroundColor: '#e8e9e8',
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-            }}>
+                {this.props.showimage ? <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} /> : <></>}
 
-
-                <Image source={ImgMenu} style={styles.image} />
 
 
 
@@ -52,18 +42,20 @@ export default class Restaurantscard extends React.Component {
 
                     <View style={styles.cardcontainent}>
 
-                        <Card.Title style={styles.text}>Restaurant's Name</Card.Title>
+                        <Card.Title style={styles.text}>{this.props.restaurantName}</Card.Title>
                         <View style={{ flex: 1 }}>
                             <TouchableOpacity
                                 style={{
 
                                 }}
-                                onPress={() => {this.setState(
-                                    {pressedFavorite: !this.state.pressedFavorite}
-                                    
-                                    )}
+                                onPress={() => {
+                                    this.setState(
+                                        { pressedFavorite: !this.state.pressedFavorite }
+
+                                    )
                                 }
-                            
+                                }
+
                             >
                                 <Icon
                                     style={{ alignSelf: "flex-end"/* ,backgroundColor:'#ffa457'*/ }}
@@ -71,7 +63,7 @@ export default class Restaurantscard extends React.Component {
                                     //  theme="outlined"
                                     type='fontisto'
                                     size={18}
-                                    color={'#ffa457'}
+                                    color={'#6357ff'}
 
                                 />
                             </TouchableOpacity>
@@ -103,7 +95,7 @@ export default class Restaurantscard extends React.Component {
                             name='truck'
                             type='font-awesome'
                             size={16}
-                            color={'#ffa457'}
+                            color={'#6357ff'}
                         />
                     </View>
 
@@ -145,9 +137,9 @@ const styles = StyleSheet.create({
     text: {
 
 
-        color: '#ffa457',
-        fontSize: 14,
-        fontWeight: "600",
+        color: '#6357ff',
+        fontSize: 13,
+        fontWeight: "700",
         marginBottom: 5,
         marginTop: 0,
 
@@ -164,5 +156,41 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flex: 1
 
-    }
+    },
+    containerStyle: {
+      
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderWidth: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
+        
+    },
+    containerStyleWithoutimage: {
+        borderBottomRightRadius:10,
+        borderBottomLeftRadius:10,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderWidth: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
+        
+    },
+    wrapperStyle: {
+        backgroundColor: '#e8e9e8',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+
+    },
+    wrapperStyleWithoutimage: {
+        backgroundColor: '#e8e9e8',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius:10,
+        borderBottomLeftRadius:10,
+    },
 });
