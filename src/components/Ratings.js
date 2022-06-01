@@ -1,30 +1,22 @@
 import * as React from "react";
-import { Rating, AirbnbRating } from "react-native-elements";
+import { Icon, Rating, AirbnbRating } from "react-native-elements";
 import { StyleSheet, View, Text, Image } from 'react-native';
 import logoImg from '../images/star2.png';
-import logoImg2 from '../images/star2.png';
-
-const starImageSize =18;
-export default class Ratings extends React.Component {
-
-  render() {
-    return (
-      <View style={{}}>
-       
-        <><Rating
+import logoImg2 from '../images/star3.png';
+/*<><Rating
           type="custom"
           imageSize={starImageSize}
-         // readonly
+          // readonly
           startingValue={3.65}
           ratingColor='#6357ff'
           ratingTextColor='#6357ff'
           ratingBackgroundColor='transparent'
-          
-        tintColor='#e8e9e8'
+
+          tintColor='#e8e9e8'
         />
 
         </>
-        <View style={{flexDirection:'row',position :'absolute',}}>
+        <View style={{ flexDirection: 'row', position: 'absolute', }}>
           <Image
             style={styles.ratingimage}
             source={logoImg2}
@@ -46,7 +38,73 @@ export default class Ratings extends React.Component {
             source={logoImg2}
           />
         </View>
+        
+        <View style={{ flexDirection: 'row'/*, position: 'absolute', }}>
+        <Icon
+          style={{}}
+          name="star"
+          type='font-awesome'
+          size={18}
+          onPress={() => { }}
+          color={'#6356fb'}
+        />
+          <Icon
+          style={{}}
+          name='star'
+          type='font-awesome'
+          size={18}
+          onPress={() => { }}
+          color={'#6356fb'}
+        />
+          <Icon
+          style={{}}
+          name='star'
+          type='font-awesome'
+          size={18}
+          onPress={() => { }}
+          color={'#6356fb'}
+        />
+          <Icon
+          style={{}}
+          name='star'
+          type='font-awesome'
+          size={18}
+          onPress={() => { }}
+          color={'#6356fb'}
+        />
+          <Icon
+          style={{}}
+          name='star'
+          type='font-awesome'
+          size={18}
+          onPress={() => { }}
+          color={'#6356fb'}
+        />
+        </View>
+*/
+const starImageSize = 18;
+export default class Ratings extends React.Component {
 
+  render() {
+    return (
+      <View style={{}}>
+
+<Rating
+          type="custom"
+          imageSize={starImageSize}
+          ratingImage={logoImg2}
+          // readonly
+          startingValue={3}
+          ratingColor='#6357ff'
+         // ratingTextColor='#6357ff'
+          ratingBackgroundColor='transparent'
+
+         // tintColor='#e8e9e8'
+        />
+
+       
+        
+        
       </View>
     );
   }

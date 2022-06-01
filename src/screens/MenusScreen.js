@@ -123,6 +123,7 @@ const MenusScreen = ({ navigation }) => {
             <ButtonsGroup
                 Data={DATA}
                 selected={DATA[0].id}
+                scroll={true}
             />
 
             <View style={{ flex: 1 }}>
