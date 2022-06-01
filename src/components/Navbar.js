@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     //width: '100%',
     height: '6%',
     marginLeft: '3%',
-    marginRight: '3%'
+    marginRight: '3%',
+    marginTop:'3%'
     //justifyContent: 'center',
     //alignItems: 'center',
     // borderBottomEndRadius:15,

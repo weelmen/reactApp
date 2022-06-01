@@ -5,10 +5,7 @@ import Checked from "../icons/check_box_black_24dp.svg"
 import Unchecked from "../icons/check_box_outline_blank_black_24dp.svg"
 const CheckBox = (props) => {
 	const [choice, setChoice] = useState(true);
-	/*const IconName = /*props.isChecked *//*choice?*/
-		/*Checked : Unchecked;*/
-	/*const iconColor = /*props.isChecked*//*choice ?
-		"blue" : "black";*/
+
 		const IconName = props.isChecked ?
 		Checked : Unchecked;
 	const iconColor = props.isChecked ?

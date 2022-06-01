@@ -6,7 +6,7 @@ import { ButtonGroup, SearchBar, Button, Icon, Divider } from 'react-native-elem
 import Restaurantscard from "../components/Restaurantscard";
 import Searchbar from "../components/Searchbar";
 import NavBar from "../components/Navbar";
-import {fakerestaurantsdata} from "../api-json-server/fakedata.json"
+import { fakerestaurantsdata } from "../api-json-server/fakedata.json"
 
 const RestaurantsScreen = ({ navigation }) => {
     const [texts, setTexts] = useState('');
@@ -23,13 +23,13 @@ const RestaurantsScreen = ({ navigation }) => {
             <NavBar
                 navBarText={"test"}
             />
-            <Searchbar />
+
 
 
             <View style={{ flex: 1 }}>
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
 
-
+                    <Searchbar />
                     <View>
                         {fakerestaurantsdata.map(item => {
                             return (
@@ -65,16 +65,16 @@ const RestaurantsScreen = ({ navigation }) => {
 export default RestaurantsScreen;
  /*<ButtonGroup
 
-                   buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
-                   selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
-                   selectedTextStyle={{ color: '#6357ff' }}
-                   buttons={['Orders', 'Offers']}
-                   selectedIndex={selectedUpperIndex}
-                   onPress={(value) => {
-                       setSelectedUpperIndex(value);
-                   }}
-                   textStyle={{ fontSize: 14 }}
-                   containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
+                  buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
+                  selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
+                  selectedTextStyle={{ color: '#6357ff' }}
+                  buttons={['Orders', 'Offers']}
+                  selectedIndex={selectedUpperIndex}
+                  onPress={(value) => {
+                      setSelectedUpperIndex(value);
+                  }}
+                  textStyle={{ fontSize: 14 }}
+                  containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
 
-               />
+              />
 */
