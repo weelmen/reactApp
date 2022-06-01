@@ -36,7 +36,31 @@ const RestaurantsScreen = ({ navigation }) => {
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
-    const component2 = () => <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />;
+    const component2 = () =>
+        <View>
+            <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
+            <View style={{ position: 'absolute',/* flexDirection:'column'*/ }}>
+                <View style={{
+                    //  alignItems: 'flex-start',
+                    // alignContent:'flex-start',
+                    height: 17,
+                    width: 17,
+                    borderRadius: 30,
+                    borderColor: '#6256fb',
+                    borderWidth: 1,
+                    // alignSelf: 'flex-start',
+                    marginTop: -5,
+                    
+                    backgroundColor: 'white',
+                    /* position: 'absolute'*/
+                }}><Text style={{fontSize:12,alignSelf:'center'}}>7</Text>
+
+                </View>
+
+
+            </View>
+        </View>
+        ;
 
     return (
         <View style={{ flex: 1, backgroundColor: '#fcfcfc' }}>
@@ -47,14 +71,15 @@ const RestaurantsScreen = ({ navigation }) => {
             <ButtonsGroup
                 Data={DATA}
                 selected={DATA[0].id}
-                
+
             />
-           
+
 
             <View style={{ flex: 1 }}>
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
 
                     <Searchbar />
+
                     <View>
                         {fakerestaurantsdata.map(item => {
                             return (
@@ -62,8 +87,10 @@ const RestaurantsScreen = ({ navigation }) => {
                             );
                         })}
                     </View>
+
                 </ScrollView>
             </View>
+
             <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white', }}>
 
                 <ButtonGroup
@@ -90,16 +117,16 @@ const RestaurantsScreen = ({ navigation }) => {
 export default RestaurantsScreen;
  /*<ButtonGroup
 
-                buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
-                selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
-                selectedTextStyle={{ color: '#6357ff' }}
-                buttons={['Orders', 'Offers']}
-                selectedIndex={selectedUpperIndex}
-                onPress={(value) => {
-                    setSelectedUpperIndex(value);
-                }}
-                textStyle={{ fontSize: 14 }}
-                containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
+            buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
+            selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
+            selectedTextStyle={{ color: '#6357ff' }}
+            buttons={['Orders', 'Offers']}
+            selectedIndex={selectedUpperIndex}
+            onPress={(value) => {
+                setSelectedUpperIndex(value);
+            }}
+            textStyle={{ fontSize: 14 }}
+            containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
 
-            />
+        />
 */
