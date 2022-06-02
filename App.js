@@ -24,7 +24,7 @@
    return (
      
        <NavigationContainer>
-         <Stack.Navigator initialRouteName="Restaurants Screen">
+         <Stack.Navigator initialRouteName="Confirm Order Screen 1">
            <Stack.Screen name="Sign In" component={LoginScreen} options={{headerShown: false}} />
            <Stack.Screen name="Sign Up" component={RegisterScreen} options={{headerShown: false}}/>
            <Stack.Screen name="Sign Up2" component={SignupScreen} options={{headerShown: false}}/>

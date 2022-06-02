@@ -82,6 +82,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                     agent_Name={item.agent_Name}
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
+                                    ShowPriceDetails={[false, ]}
                                     navigations={navigation}
                                 />
 
@@ -111,6 +112,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                     agent_Name={item.agent_Name}
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
+                                    ShowPriceDetails={[false, ]}
                                     navigations={navigation}
                                 />
 

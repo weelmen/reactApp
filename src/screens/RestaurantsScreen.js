@@ -53,7 +53,7 @@ const RestaurantsScreen = ({ navigation }) => {
                     
                     backgroundColor: 'white',
                     /* position: 'absolute'*/
-                }}><Text style={{fontSize:12,alignSelf:'center'}}>7</Text>
+                }}><Text style={{fontSize:16,alignSelf:'center', marginTop: -3}}>7</Text>
 
                 </View>
 

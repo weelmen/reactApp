@@ -23,7 +23,7 @@ export default class Restaurantscard extends React.Component {
 
             <Card key={this.props.id} 
             containerStyle={this.props.showimage ?styles.containerStyle: styles.containerStyleWithoutimage} 
-            wrapperStyle={this.props.showimage ?styles.wrapperStyle: styles.containerStyleWithoutimage}>
+            wrapperStyle={this.props.showimage ?styles.wrapperStyle: styles.wrapperStyleWithoutimage}>
 
                 {this.props.showimage ? <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} /> : <></>}
 

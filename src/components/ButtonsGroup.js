@@ -35,12 +35,12 @@ const ButtonsGroup = (props) => {
 
 
     return (
-        <View style={{ 
+        <View style={{ marginTop:'2%'
 
 
         }}>
             {
-                props.scroll ? <View style={[styles.container, {}]}>
+                props.scroll ? <View style={[styles.container, {borderBottomWidth:1.5,borderBottomColor:'#dbdbdb',borderBottomLeftRadius:10,borderBottomRightRadius:10}]}>
                     <ScrollView horizontal>
                         {props.Data.map((item, id) => {
                             return (

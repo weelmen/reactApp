@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     marginLeft: '3%',
     marginRight: '3%',
     marginTop:'3%'
+    
     //justifyContent: 'center',
     //alignItems: 'center',
     // borderBottomEndRadius:15,

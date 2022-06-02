@@ -37,9 +37,15 @@ const CartScreen = ({ navigation }) => {
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
+               
+               
+               
                 <View
                     style={{}}
                 >
+
+
+
                     {fakecartdata_test.map((item,i) => {
                         return (
 
@@ -50,6 +56,7 @@ const CartScreen = ({ navigation }) => {
                                 agent_Name={item.agent_Name}
                                 workingTime='8 February 2022  .13:36'
                                 restaurant_name={item.restaurant_name}
+                                ShowPriceDetails={[false, ]}
                                 navigations={navigation}
                             />
 

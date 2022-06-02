@@ -106,8 +106,33 @@ const MenusScreen = ({ navigation }) => {
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
+    const [card,setCard]= useState(1);
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
-    const component2 = () => <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />;
+    const component2 = () =>
+        <View>
+            <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
+            <View style={{ position: 'absolute',/* flexDirection:'column'*/ }}>
+                {card!=0?<View style={{
+                    //  alignItems: 'flex-start',
+                    // alignContent:'flex-start',
+                    height: 17,
+                    width: 17,
+                    borderRadius: 30,
+                    borderColor: '#6256fb',
+                    borderWidth: 1,
+                    // alignSelf: 'flex-start',
+                    marginTop: -5,
+                    
+                    backgroundColor: 'white',
+                    /* position: 'absolute'*/
+                }}><Text style={{fontSize:15,alignSelf:'center', marginTop: -3}}>{card}</Text>
+
+                </View>:<View></View>}
+
+
+            </View>
+        </View>
+        ;
     // Make a request for a user with a given ID
     /*  const data=await axios.get('http://localhost:3000/fakemenusdata?id=1');
          console.log(data)*/
