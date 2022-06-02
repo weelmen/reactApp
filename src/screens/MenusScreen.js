@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from "./style";
 import { ScrollView, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
-import { ButtonGroup, SearchBar, Button, Icon, Divider , Card} from 'react-native-elements';
+import { ButtonGroup, SearchBar, Button, Icon, Divider, Card } from 'react-native-elements';
 import MenuCard from "../components/Menuscard";
 import Searchbar from "../components/Searchbar";
 import { authUser } from "../controller/user.controller";
@@ -12,8 +12,8 @@ import Restaurantscard from "../components/Restaurantscard";
 //import get from "../controller/user.controller";
 //import { Axios } from "axios";
 
-import { fakemenusdata} from '../api-json-server/fakedata.json'
-import {fakerestaurantsdata } from '../api-json-server/fakedata.json'
+import { fakemenusdata } from '../api-json-server/fakedata.json'
+import { fakerestaurantsdata } from '../api-json-server/fakedata.json'
 
 import RestaurantsScreen from "./RestaurantsScreen";
 
@@ -21,61 +21,61 @@ const DATA = [
     {
         id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
         title: "All",
-        default:true
+        default: true
     },
     {
         id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
         title: "Pizza",
-        default:false
+        default: false
     },
     {
         id: "58694a0f-3da1-471f-bd96-145571e29d72",
         title: "Burguer",
-        default:false
+        default: false
     },
     {
         id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba1",
         title: "Tacos",
-        default:false
+        default: false
     },
     {
         id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f632",
         title: "Sandwich",
-        default:false
+        default: false
     },
     {
         id: "58694a0f-3da1-471f-bd96-145571e29d723",
         title: "Mlawi",
-        default:false
+        default: false
     },
     {
         id: "43ac68afc-c605-48d3-a4f8-fbd91aa97f632",
         title: "Makloub",
-        default:false
+        default: false
     },
     {
         id: "158694a0f-3da1-471f-bd96-145571e29d723",
         title: "Malfouf",
-        default:false
+        default: false
     },
     {
         id: "23ac68afc-c605-48d3-a4f8-fbd91aa97f632",
         title: "Kalzonie",
-        default:false
+        default: false
     },
     {
         id: "358694a0f-3da1-471f-bd96-145571e29d723",
         title: "Baguette farcie",
-        default:false
+        default: false
     },
 ];
 
 
-function byID(idToSearch ,dt) {
+function byID(idToSearch, dt) {
     return dt.filter(item => {
-    console.log(item)
+        console.log(item)
         return item.id === idToSearch
-    
+
     })
 };
 
@@ -100,19 +100,19 @@ axios.get('https://my-json-server.typicode.com/weelmen/fakedata/fakemenusdata', 
 const MenusScreen = ({ navigation }) => {
     //  const axios = require('axios').default;
     //let [responseData, setResponseData] = React.useState('')
-    
+
     const [texts, setTexts] = useState('');
     const [showLoginPassword, setShowLoginPassword] = useState(false);
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
-    const [card,setCard]= useState(1);
+    const [card, setCard] = useState(1);
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
     const component2 = () =>
         <View>
             <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
             <View style={{ position: 'absolute',/* flexDirection:'column'*/ }}>
-                {card!=0?<View style={{
+                {card != 0 ? <View style={{
                     //  alignItems: 'flex-start',
                     // alignContent:'flex-start',
                     height: 17,
@@ -122,12 +122,12 @@ const MenusScreen = ({ navigation }) => {
                     borderWidth: 1,
                     // alignSelf: 'flex-start',
                     marginTop: -5,
-                    
+
                     backgroundColor: 'white',
                     /* position: 'absolute'*/
-                }}><Text style={{fontSize:15,alignSelf:'center', marginTop: -3}}>{card}</Text>
+                }}><Text style={{ fontSize: 15, alignSelf: 'center', marginTop: -3 }}>{card}</Text>
 
-                </View>:<View></View>}
+                </View> : <View></View>}
 
 
             </View>
@@ -142,28 +142,34 @@ const MenusScreen = ({ navigation }) => {
 
         <View style={{ backgroundColor: 'white', flex: 1 }}>
 
-            
-            <NavBar />
+            <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '30%' }}>
+                <NavBar />
 
-            <ButtonsGroup
-                Data={DATA}
-                selected={DATA[0].id}
-                scroll={true}
-            />
+                <ButtonsGroup
+                    Data={DATA}
+                    selected={DATA[0].id}
+                    scroll={true}
+                />
+
+
+                {byID(3, fakerestaurantsdata).map((item, i) => {
+                    return (
+                        <Restaurantscard key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                    )
+                })}
+
+
+            </View>
 
             <View style={{ flex: 1 }}>
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
 
-                {byID(3,fakerestaurantsdata).map((item, i) => {
-                    return(
-                <Restaurantscard  key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
-                )
-            })}
                     
+
                     <Searchbar />
 
                     <View style={{
-                        flex: 1,
+                        /*flex: 1,*/
                         flexDirection: "row",
                         flexWrap: "wrap",
                         marginLeft: '4%',
@@ -185,7 +191,7 @@ const MenusScreen = ({ navigation }) => {
                 </ScrollView>
 
             </View>
-            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white' }}>
+            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white' /*,height:'0%'*/ }}>
 
                 <ButtonGroup
 

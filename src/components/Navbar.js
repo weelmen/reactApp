@@ -49,13 +49,14 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   navBar: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'white',
+   // flex:1,
     //width: '100%',
-    height: '6%',
+    height:'30%',
     marginLeft: '3%',
     marginRight: '3%',
-    marginTop:'3%'
-    
+    /*marginTop:'3%'
+    */
     //justifyContent: 'center',
     //alignItems: 'center',
     // borderBottomEndRadius:15,

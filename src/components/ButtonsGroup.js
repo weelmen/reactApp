@@ -35,12 +35,12 @@ const ButtonsGroup = (props) => {
 
 
     return (
-        <View style={{ marginTop:'2%'
+        <View style={[styles.container,{ marginTop:'1%', /*flex:1,*/backgroundColor:'white'
 
 
-        }}>
+        }]}>
             {
-                props.scroll ? <View style={[styles.container, {borderBottomWidth:1.5,borderBottomColor:'#dbdbdb',borderBottomLeftRadius:10,borderBottomRightRadius:10}]}>
+                props.scroll ? <View style={[{marginLeft:'2%'}]}>
                     <ScrollView horizontal>
                         {props.Data.map((item, id) => {
                             return (
@@ -83,10 +83,18 @@ export default ButtonsGroup
 
 const styles = StyleSheet.create({
     container: {
+        borderWidth: 1, borderBottomLeftRadius: 10, borderBottomRightRadius: 10,
+        borderTopColor:'white',
+        borderColor:'#dbdbdb',
+        marginLeft:-2,
+        marginRight:-2
+       
         //  flex: 1,
       //  backgroundColor:'#ffffff',
-        marginLeft: 10,
-        marginTop: 0 //StatusBar.currentHeight || 0,
+       // height:'40%',
+    /*    marginLeft: '1%',
+        marginRight: '1%',*/
+      //  marginTop: 0 //StatusBar.currentHeight || 0,
     },
     item: {
         
