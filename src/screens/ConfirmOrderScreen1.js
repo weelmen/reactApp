@@ -28,6 +28,7 @@ function byID(idToSearch) {
 function onPressFunction(test) {
 
    console.log("test >>", test);
+   
 
 
 };
@@ -91,6 +92,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                     onPressConfirm={()=>onPressFunction("Confirm Order Pressed")}
                                     price={GetTotalPrice(item.items)}
                                     onPressCancel={()=>onPressFunction("Cancel Order Pressed")}
+                                    mode={'client'}
                                 />
 
 

@@ -9,76 +9,32 @@ import { authUser } from "../controller/user.controller";
 import NavBar from "../components/Navbar";
 import ButtonsGroup from "../components/ButtonsGroup";
 import Restaurantscard from "../components/Restaurantscard";
+import { fakecartdata_test } from '../api-json-server/fakedata.json';
+import DeliveryCardd from "../components/DeliveryCardd";
 //import get from "../controller/user.controller";
 //import { Axios } from "axios";
-
+import CartsCard from "../components/CartsCard";
 import { fakemenusdata } from '../api-json-server/fakedata.json'
 import { fakerestaurantsdata } from '../api-json-server/fakedata.json'
-
-import RestaurantsScreen from "./RestaurantsScreen";
-
-const DATA = [
-    {
-        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-        title: "All",
-        default: true
-    },
-    {
-        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-        title: "Pizza",
-        default: false
-    },
-    {
-        id: "58694a0f-3da1-471f-bd96-145571e29d72",
-        title: "Burguer",
-        default: false
-    },
-    {
-        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba1",
-        title: "Tacos",
-        default: false
-    },
-    {
-        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f632",
-        title: "Sandwich",
-        default: false
-    },
-    {
-        id: "58694a0f-3da1-471f-bd96-145571e29d723",
-        title: "Mlawi",
-        default: false
-    },
-    {
-        id: "43ac68afc-c605-48d3-a4f8-fbd91aa97f632",
-        title: "Makloub",
-        default: false
-    },
-    {
-        id: "158694a0f-3da1-471f-bd96-145571e29d723",
-        title: "Malfouf",
-        default: false
-    },
-    {
-        id: "23ac68afc-c605-48d3-a4f8-fbd91aa97f632",
-        title: "Kalzonie",
-        default: false
-    },
-    {
-        id: "358694a0f-3da1-471f-bd96-145571e29d723",
-        title: "Baguette farcie",
-        default: false
-    },
-];
+import { ConfirmButtonCartsCard } from "../components/CartsCard";
 
 
-function byID(idToSearch, dt) {
-    return dt.filter(item => {
-        console.log(item)
+
+function GetTotalPrice(data) {
+    /*let total = 0;
+    data.filter(item => {
+        item.price !== 0 ? total = (total + (item.price * item.number)) : NaN
+    })
+    console.log("total =====", total);*/
+    return (4)
+};
+function byID(idToSearch) {
+    return fakecartdata_test.filter(item => {
+
         return item.id === idToSearch
-
+        consol.log(item);
     })
 };
-
 
 
 
@@ -97,7 +53,7 @@ axios.get('https://my-json-server.typicode.com/weelmen/fakedata/fakemenusdata', 
     });
 
 
-const MenusScreen = ({ navigation }) => {
+const DeliveryAcceptScreen = ({ navigation }) => {
     //  const axios = require('axios').default;
     //let [responseData, setResponseData] = React.useState('')
 
@@ -107,6 +63,11 @@ const MenusScreen = ({ navigation }) => {
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
     const [card, setCard] = useState(1);
+    const [action, setAction] = useState('Delivered');
+    const [count, setCount] = useState(2);
+    const [deliveryFeeMsg, setDeliveryFeeMsg] = useState('Delivery fee 4 TND');
+    const [evaluation, setEvaluation] = useState('Good Job!!');
+   
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
     const component2 = () =>
         <View>
@@ -140,61 +101,75 @@ const MenusScreen = ({ navigation }) => {
     //  const Buttoncomponent1 = () => <View style={{backgroundColor:'red'}}><Text >All</Text></View>
     return (
 
-        <View style={{ backgroundColor: 'white', flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor:'#fcfcfc' }}>
 
-            <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '25%' }}>
-                <View style={{ height: '25%' }}>
-                    <NavBar />
+            <View style={{ height: 50 ,backgroundColor: 'white'}}>
 
-                </View>
-                <View slyle={{ height: '20%'}}>
-                    <ButtonsGroup
-                        Data={DATA}
-                        selected={DATA[0].id}
-                        scroll={true}
-                    />
-                </View>
-         
-                    {byID(3, fakerestaurantsdata).map((item, i) => {
-                        return (
-                            <Restaurantscard key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
-                        )
-                    })}
-            
-
+                <NavBar />
             </View>
-
-            <View style={{ flex: 1 }}>
-                <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
-
-
-
-                    <Searchbar />
-
-                    <View style={{
-                        /*flex: 1,*/
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        marginLeft: '4%',
-                        //marginRight:'4%'
-
-                    }}>
-
-
-                        {fakemenusdata.map(menusdata => {
-                            return (
-                                <MenuCard key={menusdata.id} imagesrc={menusdata.srcimg} restaurantName={menusdata.name} />
-                            );
-                        })}
-
-
-
-                    </View>
-
-                </ScrollView>
-
+            <View style={{ height: 100,backgroundColor: 'white' /*backgroundColor: 'blue' */ }}>
+                <DeliveryCardd />
             </View>
-            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white', height: '7%' }}>
+            {action != 'Accept' ?
+                <View style={{alignItems:'center' ,borderBottomLeftRadius:15,borderBottomRightRadius:15 ,backgroundColor:'white',borderBottomWidth:3,borderColor:'#f5f5f5'}}>
+                    <Text style={{fontSize:15,fontWeight:'500',color:'#3a493a'}}>{action == 'GoToRestaurant' ?'Meal is ready in 3 min':(action == 'GoToClient' ?'Deliver the meal to "company" 25 min left':`${evaluation }`)}</Text>
+                    <Text style={{color:'#6357ff',fontWeight:'400'}}>{action == 'GoToRestaurant' ?'Go to "restaurant" the meal is almost ready':(action == 'GoToClient' ?'365 m for destination':`${deliveryFeeMsg }`)}</Text>
+                </View> : <></>}
+            <ScrollView style={{ flex: 1 }}>
+
+                {byID(6).map((item, i) => {
+                    () => setData(item);
+                    return (
+                        <View>
+                            <CartsCard
+                                data={item}
+                                imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
+                                company_Name={item.company_Name}
+                                agent_Name={item.agent_Name}
+                                workingTime='8 February 2022  .13:36'
+                                restaurant_name={item.restaurant_name}
+                                ShowPriceDetails={[false,]}
+                                navigations={navigation}
+                            />
+
+
+                            {action == 'Accept' ? <ConfirmButtonCartsCard
+                                onPressConfirm={() => onPressFunction("Confirm Order Pressed")}
+                                price={GetTotalPrice(item.items)}
+                                onPressCancel={() => onPressFunction("Cancel Order Pressed")}
+                                mode={'deliveryMan'}
+                            /> : <></>}
+
+
+
+                        </View>
+
+
+                    );
+
+
+
+                })}
+
+                {action!='Delivered'?<View
+                    style={{ flex: 1, height: 400, borderRadius: 10, backgroundColor: '#f5f5f5', marginHorizontal: 15 }}
+                >
+
+
+                    <Text style={{ fontSize: 26, alignSelf: 'center', margin: 120 }}>MAP</Text>
+
+
+
+
+
+
+
+
+                </View>:<></>}
+
+            </ScrollView>
+
+            <View style={{ borderColor: '#c7c8c6', borderWidth: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10, backgroundColor: 'white', height: 47 }}>
 
                 <ButtonGroup
 
@@ -211,6 +186,11 @@ const MenusScreen = ({ navigation }) => {
                 />
             </View>
 
+
+
+
+
+
         </View>
     );
 
@@ -219,4 +199,4 @@ const MenusScreen = ({ navigation }) => {
 
 
 
-export default MenusScreen;
+export default DeliveryAcceptScreen;

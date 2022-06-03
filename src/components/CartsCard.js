@@ -139,150 +139,42 @@ export default class CartsCard extends React.Component {
 
 
         return (
+            <View style={{flex:1/*,height:'100%',width:'100%'*/}}>
+                <View style={{
+                    marginHorizontal:15,
+                    marginVertical:5,
+                    // flex:1,
+                    //height:'100%',
+                    //flexDirection: 'row',
+                    borderRadius: 10,
+                    // borderTopRightRadius: 10,
 
-            <Card containerStyle={{
-
-                borderRadius: 10,
-               // borderTopRightRadius: 10,
-                borderWidth: 0,
-                paddingTop: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                paddingRight: 0,
-            }} wrapperStyle={{
-                backgroundColor: '#f5f5f5',
-                borderRadius: 10,
-               // borderTopRightRadius: 10,
-            }}>
+                    backgroundColor: '#f5f5f5',
+                }} >
 
 
-
-                <View
-
-                    style={styles.container}>
 
 
                     <View
-                        style={{
-                            flex: 1,
-                            flexDirection: 'row',
-                            //margin: '1%'
+                        style={{marginBottom: '3%', flex: 1,}}
+                    >
 
-                        }}>
-                        <View
-                            style={{
-                                width: 50,
-                                height: 50,
-                                //width: '18%',
-                                //marginRight: '2%'
+                        
 
-                            }}>
-                            <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} />
-                        </View>
-                        <View
-                            style={{
-                                flex: 1,
-                                //  alignItems: 'flex-end',
-
-                            }}>
-
-                            <View
-                                style={{
-                                    flexDirection: 'column',
-                                    marginLeft: '2%'
-                                }}>
-                                <View
-                                    style={{
-                                        flexDirection: 'row'
-                                    }}>
-                                    <View
-                                        style={{
-                                            flex: 1,
-                                            alignItems: 'flex-start',
-
-                                        }}>
-                                        <Text
-                                            style={{
-                                                color: '#6357ff',
-                                                fontSize: 15,
-                                                fontWeight: "400",
-                                            }}
-                                        >{this.props.company_Name}</Text>
-                                    </View>
-                                    {this.props.Hidedetails ? (<View>
-
-                                    </View>
-                                    ) : (<Pressable
-                                        style={{
-                                            flex: 1,
-                                            alignItems: 'flex-end',
-                                            paddingRight: '2%'
-
-                                        }}
-                                        onPress={() => { this.props.navigations.navigate('Confirm Order Screen') }}
-                                    >
-
-                                        <Text
-                                            style={{
-                                                color: '#6357ff',
-                                                fontWeight: "400",
-                                                fontSize: 12
-
-                                            }}
-                                        >See details</Text>
-
-                                    </Pressable>)
-                                    }
-                                </View>
-                                <Text
-                                    style={{
-                                        color: '#424242',
-                                        // fontSize: 16,
-                                        fontWeight: "500"
-                                    }}
-                                >{this.props.agent_Name}</Text>
-                                <Text
-                                    style={{
-                                        color: '#424242',
-                                        fontSize: 10,
-                                        fontWeight: "400",
-                                    }}
-                                >{this.props.workingTime}</Text>
-
-
-                            </View>
-                        </View>
-                    </View>
-
-                </View>
-
-                <View
-                    style={{ marginBottom: '3%', }}
-                >
-
-                    <Text style={{
-                        paddingLeft: '3%',
-                        color: '#6357ff',
-                        fontSize: 15,
-                        fontWeight: "400",
-
-                    }}>{this.props.restaurant_name}</Text>
-
-                    {this.props.data.items.map((sub, i) => {
+                        {this.props.data.items.map((sub, i) => {
                         return (
                             <View
                                 style={[{
                                     flex: 1,
                                     flexDirection: "row",
 
-                                    // height:50,
-                                    // margin: 2
+                                    
                                 }, styles.container]}>
                                 <View
                                     style={{
                                         // flex
                                         //flex: 0,
-
+                                        alignSelf: 'center',
                                         width: 50,
                                         height: 50,
 
@@ -325,26 +217,26 @@ export default class CartsCard extends React.Component {
 
                         );
                     })}
-                    {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
-                        (<View></View>)
+                        {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
+                            (<View></View>)
 
 
 
-                    }
+                        }
+
+
+                    </View>
+
+
+
+
+
+
 
 
                 </View>
 
-
-
-
-
-
-
-
-            </Card>
-
-
+            </View>
         );
     }
 }
@@ -358,22 +250,18 @@ export class ConfirmButtonCartsCard extends React.Component {
             <View>
                 <Button
                     onPress={this.props.onPressConfirm}
-                    buttonStyle={{
-                        backgroundColor: '#6357ff',
-                        borderRadius: 5,
-                        marginTop: '5%',
-                        marginLeft: "8%",
-                        marginRight: "8%",
-                        fontWeight: '400'
-                    }} title={`Confirm order  (${this.props.price} TND)`}
+                    titleStyle={this.props.mode=='deliveryMan'?styles.deliveryManBottonText:styles.clientBottonText}
+                    buttonStyle={
+                        this.props.mode=='deliveryMan'?styles.deliveryManBotton:styles.clientBotton
+                    } title={this.props.mode=='deliveryMan'?`Accept order  (${this.props.price} TND)`:`Confirm order  (${this.props.price} TND)`}
 
                 />
                 <Pressable
                     onPress={this.props.onPressCancel}
                 >
                     <Text
-                        style={{ alignSelf: 'center', color: "#6357ff", fontSize: 13, marginTop: '3%' }}
-                    >Cancel order</Text>
+                        style={this.props.mode=='deliveryMan'?styles.deliveryManDecline:styles.clientCancel}
+                    >{this.props.mode=='deliveryMan'?'Declined order':'Cancel order'}</Text>
 
                 </Pressable>
 
@@ -393,6 +281,7 @@ const styles = StyleSheet.create({
     container: {
         margin: '3%',
         marginBottom: 0,
+
 
 
 
@@ -432,6 +321,43 @@ const styles = StyleSheet.create({
     },
     blue: {
         color: '#847bfd',
+    },
+    deliveryManBotton: {
+        backgroundColor: '#7dff9b',
+        
+        borderRadius: 5,
+        marginTop: '5%',
+        marginLeft: "8%",
+        marginRight: "8%",
+        fontWeight: '400'
+    },
+    deliveryManBottonText: {
+   
+        color:'#3a493a',
+
+    },
+    deliveryManDecline: {
+        alignSelf: 'center',
+        color: "#fa9ab1",
+        fontSize: 13,
+        marginTop: '3%'
+    },
+    clientBotton: {
+        backgroundColor: '#6357ff',
+        borderRadius: 5,
+        marginTop: '5%',
+        marginLeft: "8%",
+        marginRight: "8%",
+        fontWeight: '400'
+    },
+    clientBottonText: {
+
+    },
+    clientCancel: {
+        alignSelf: 'center',
+        color: "#6357ff",
+        fontSize: 13,
+        marginTop: '3%'
     },
 
 });

@@ -50,10 +50,10 @@ const RestaurantsScreen = ({ navigation }) => {
                     borderWidth: 1,
                     // alignSelf: 'flex-start',
                     marginTop: -5,
-                    
+
                     backgroundColor: 'white',
                     /* position: 'absolute'*/
-                }}><Text style={{fontSize:16,alignSelf:'center', marginTop: -3}}>7</Text>
+                }}><Text style={{ fontSize: 16, alignSelf: 'center', marginTop: -3 }}>7</Text>
 
                 </View>
 
@@ -64,10 +64,11 @@ const RestaurantsScreen = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: '#fcfcfc' }}>
+            <View style={{ height: '7%' }}>
+                <NavBar
 
-            <NavBar
-                navBarText={"test"}
-            />
+                />
+            </View>
             <ButtonsGroup
                 Data={DATA}
                 selected={DATA[0].id}
@@ -117,16 +118,16 @@ const RestaurantsScreen = ({ navigation }) => {
 export default RestaurantsScreen;
  /*<ButtonGroup
 
-            buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
-            selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
-            selectedTextStyle={{ color: '#6357ff' }}
-            buttons={['Orders', 'Offers']}
-            selectedIndex={selectedUpperIndex}
-            onPress={(value) => {
-                setSelectedUpperIndex(value);
-            }}
-            textStyle={{ fontSize: 14 }}
-            containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
+           buttonContainerStyle={{ backgroundColor: 'white', borderColor: 'white', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
+           selectedButtonStyle={{ backgroundColor: 'white', borderColor: 'white' }}
+           selectedTextStyle={{ color: '#6357ff' }}
+           buttons={['Orders', 'Offers']}
+           selectedIndex={selectedUpperIndex}
+           onPress={(value) => {
+               setSelectedUpperIndex(value);
+           }}
+           textStyle={{ fontSize: 14 }}
+           containerStyle={{ borderColor: 'white', marginBottom: 0, justifyContent: 'center', flexDirection: 'row' }}
 
-        />
+       />
 */

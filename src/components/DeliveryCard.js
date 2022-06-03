@@ -60,6 +60,7 @@ export default class DeliveryCard extends React.Component {
                             // borderRadius: 10,
                             marginTop: 5,
                             marginBottom: 3,
+                        
                             //   marginRight:5
                             marginLeft: -15,
 
@@ -71,9 +72,9 @@ export default class DeliveryCard extends React.Component {
                             <Icon
                                 style={{ marginLeft: 10, marginRight: 10 }}
                                 name='close'
-                                type='font-awesome'
+                                type='material'
                                 size={30}
-                                color={'#6357ff'}
+                                color={'#424242'}
                             />
 
 
@@ -104,9 +105,9 @@ export default class DeliveryCard extends React.Component {
                             <Icon
                                 style={{ marginLeft: 10, marginRight: 10 }}
                                 name='check'
-                                type='font-awesome'
+                                type='material'
                                 size={30}
-                                color={'#6357ff'}
+                                color={'#424242'}
                             />
 
 
@@ -133,6 +134,7 @@ export default class DeliveryCard extends React.Component {
                         //  disableSwipeIfNoButton={true}
                         onRightButtonsShowed={() => this.updateState(this.state, "ON")}
                         onMovedToOrigin={() => this.updateState(this.state, "OFF")}
+                        
                         /* leftButtons={}*/>
 
 
@@ -150,7 +152,7 @@ export default class DeliveryCard extends React.Component {
                             marginTop: 5,
                             marginBottom: 5
                         }]} wrapperStyle={[this.state.Swipe ? styles.swipeON : styles.swipeOFF, {
-                            backgroundColor: '#f5f5f5',
+                            backgroundColor: this.state.Right1=='Declined'?'#fae1e7':'#f5f5f5',
 
                             //  borderTopRightRadius: 10,
                         }]}>

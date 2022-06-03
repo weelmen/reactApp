@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Button, ButtonGroup, Icon } from "react-native-elements";
 import Img from "../images/jeune-femme.jpg";
-const NavBar = (props) => {
+const Navigation = (props) => {
   const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
   const Buttons = <View>
 
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NavBar;
+export default Navigation;

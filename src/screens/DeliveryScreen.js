@@ -4,6 +4,7 @@ import { SearchBar, Button, Divider, Card } from 'react-native-elements';
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import CartsCard from "../components/CartsCard";
 import DeliveryCard from "../components/DeliveryCard"
+import NavBar from "../components/Navbar";
 
 
 function GetTotalPrice(data) {
@@ -39,22 +40,26 @@ const DeliveryScreen = ({ navigation, price }) => {
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+<View style={{height:'8%'}}>
+            <NavBar />
 
-
-
-
+</View>
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
 
 
-                
+
                 <View
                     style={{}}
                 >
-                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
-                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
-                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
-                    <DeliveryCard onPressDelete={()=>setTest("Delete")} onPressConfirm={()=>setTest("Confirm")}/>
-                   
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+                    <DeliveryCard onPressDelete={() => setTest("Delete")} onPressConfirm={() => setTest("Confirm")} />
+
 
 
                 </View>
