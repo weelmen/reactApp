@@ -95,10 +95,14 @@ const ConfirmOrderScreen = ({ navigation,price }) => {
                             marginLeft: "4%",
                             marginRight: "4%",
                             fontWeight:'400'
-                        }} title={`Confirm order  (${price='undefined'?0:price} TND)`}
+                        }} 
+                        onPress={() => navigation.navigate('Cart Screen')}
+                        title={`Confirm order  (${price='undefined'?0:price} TND)`}
 
                     />
-                    <Pressable>
+                    <Pressable
+                    onPress={() => navigation.navigate('Restaurants Screen')}
+                    >
                     <Text
                     style={{alignSelf:'center',color:"#6357ff",fontSize:13,marginTop:'3%'}}
                     >Cancel order</Text>

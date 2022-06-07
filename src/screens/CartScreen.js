@@ -5,7 +5,7 @@ import { SearchBar, Button, Divider, Card } from 'react-native-elements';
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard"
-
+import Navigation from "../components/Navigation";
 
 
 /*
@@ -35,6 +35,13 @@ const CartScreen = ({ navigation }) => {
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+            <View style={{ height: '8%' }}>
+                <Navigation 
+                    screenName={'My cart'}
+                    onPress={()=>navigation.navigate('Menus Screen')}
+                />
+
+            </View>
 
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
                
@@ -57,7 +64,8 @@ const CartScreen = ({ navigation }) => {
                                 workingTime='8 February 2022  .13:36'
                                 restaurant_name={item.restaurant_name}
                                 ShowPriceDetails={[false, ]}
-                                navigations={navigation}
+                                onPressSeeDetails={()=>navigation.navigate('Order Number Screen')}
+                                mode={'client'}
                             />
 
 

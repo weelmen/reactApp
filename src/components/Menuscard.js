@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, Card } from "react-native-elements";
 import ImgMenu from "../images/menu1.jpeg";
 import test from "../images/Menu1.jpg";
-import { AirbnbRating, StyleSheet, View, Text, Image } from 'react-native';
+import { AirbnbRating,Pressable, StyleSheet, View, Text, Image } from 'react-native';
 import Ratings from "./Ratings";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import style from "../screens/style";
@@ -48,13 +48,13 @@ export default class MenuCard extends React.Component {
                 borderTopLeftRadius: 10,
                 borderTopRightRadius: 10,
             }}>
-                <TouchableOpacity
+                <Pressable
                     style={{
 
                     }}
-                    onPress={() => {
-                        setShowLoginPassword(!showLoginPassword);
-                    }}
+                    onPress={
+                        this.props.onPress
+                    }
                 >
                     <View key={this.props.id}>
                         <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} />
@@ -93,7 +93,7 @@ export default class MenuCard extends React.Component {
 
                         </View>
                     </View>
-                </TouchableOpacity>
+                </Pressable>
             </Card>
 
 

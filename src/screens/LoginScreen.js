@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import styles from "./style";
-import { Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
+import { Pressable,  Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
 import { Button, Icon, Divider } from 'react-native-elements';
 
-import Logo from '../components/Logo'
-import NavBar from '../components/Navbar';
+import Logo from '../components/Logo';
+//import NavBar from '../components/Navbar';
 import { Formik } from 'formik';
-import { Validate } from '../components/validator'
+
 
 
 
@@ -124,7 +124,7 @@ const LoginScreen = ({ navigation }) => {
                     flexBasis: 30,
                 /*flexWrap: "wrap-reverse",
               flex: 3*/}}>
-                    <TouchableOpacity
+                    <Pressable
                       style={{
 
                       }}
@@ -143,7 +143,7 @@ const LoginScreen = ({ navigation }) => {
                       />
 
 
-                    </TouchableOpacity>
+                    </Pressable>
                   </View>
 
                 </View>
@@ -155,7 +155,9 @@ const LoginScreen = ({ navigation }) => {
 
                 <Button
                   buttonStyle={styles.loginButton}
-                  onPress={handleSubmit}
+                  onPress={()=>{handleSubmit;
+                    navigation.navigate('Restaurants Screen');
+                  }}
                   title="Sign In"
                 />
                 <Text style={styles.smallText2}>You don't have an account ?

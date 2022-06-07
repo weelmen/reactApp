@@ -5,7 +5,7 @@ import { SearchBar, Button, Divider, Card } from 'react-native-elements';
 import { fakecartdata_test } from '../api-json-server/fakedata.json';
 //import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard";
-
+import Navigation from "../components/Navigation";
 import DeliveryCard from "../components/DeliveryCard"
 
 
@@ -34,18 +34,24 @@ const OrderNumberScreen = ({ navigation, price }) => {
 
 
 
-   
+
     return (
 
-        <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+        <View style={{ backgroundColor: '#f5f5f5', flex: 1 }}>
+            <View style={{ height: '8%' }}>
+                <Navigation 
+                    screenName={'Order Number'}
+                    onPress={()=>navigation.navigate('Cart Screen')}
+                />
+
+            </View>
 
 
 
+            <ScrollView style={{ backgroundColor: 'white', flex: 1, }} >
 
-            <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
 
 
-                
                 <View
                     style={{}}
                 >
@@ -60,9 +66,10 @@ const OrderNumberScreen = ({ navigation, price }) => {
                                     agent_Name={item.agent_Name}
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
-                                    Hidedetails={true}
+                                    Hidedetails
                                     ShowPriceDetails={[true, GetTotalPrice(item.items)]}
-                                    navigations={navigation}
+                                  //  navigations={navigation}
+                                    mode={'client'}
 
                                 />
 
@@ -97,7 +104,7 @@ const OrderNumberScreen = ({ navigation, price }) => {
 }
 
 const styles = StyleSheet.create({
- 
+
     container: {
         marginTop: 20,
         marginBottom: 20,

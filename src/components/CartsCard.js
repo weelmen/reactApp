@@ -18,6 +18,108 @@ function click(test) {
     console.log("total =====", test);
 
 };
+const UpperAdditionalJSX = (props) => {
+    return (
+        <View
+
+            style={styles.container}>
+
+
+            <View
+                style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    //margin: '1%'
+
+                }}>
+                <View
+                    style={{
+                        width: 50,
+                        height: 50,
+                        //width: '18%',
+                        //marginRight: '2%'
+
+                    }}>
+                    <Image source={{ uri: `${props.imagesrc}` }} style={styles.image} />
+                </View>
+                <View
+                    style={{
+                        flex: 1,
+                        //  alignItems: 'flex-end',
+
+                    }}>
+
+                    <View
+                        style={{
+                            flexDirection: 'column',
+                            marginLeft: '2%'
+                        }}>
+                        <View
+                            style={{
+                                flexDirection: 'row'
+                            }}>
+                            <View
+                                style={{
+                                    flex: 1,
+                                    alignItems: 'flex-start',
+
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#6357ff',
+                                        fontSize: 15,
+                                        fontWeight: "400",
+                                    }}
+                                >{props.company_Name}</Text>
+                            </View>
+                            {props.Hidedetails ? (<View>
+
+                            </View>
+                            ) : (<Pressable
+                                style={{
+                                    flex: 1,
+                                    alignItems: 'flex-end',
+                                    paddingRight: '2%'
+
+                                }}
+                                onPress={ props.onPress}
+                            >
+
+                                <Text
+                                    style={{
+                                        color: '#6357ff',
+                                        fontWeight: "400",
+                                        fontSize: 12
+
+                                    }}
+                                >See details</Text>
+
+                            </Pressable>)
+                            }
+                        </View>
+                        <Text
+                            style={{
+                                color: '#424242',
+                                // fontSize: 16,
+                                fontWeight: "500"
+                            }}
+                        >{props.agent_Name}</Text>
+                        <Text
+                            style={{
+                                color: '#424242',
+                                fontSize: 10,
+                                fontWeight: "400",
+                            }}
+                        >{props.workingTime}</Text>
+
+
+                    </View>
+                </View>
+            </View>
+
+        </View>
+    );
+}
 const AdditionalJSX = (props) => {
     const [deliveryfee, setDeliveryfee] = useState(4);
     return (
@@ -139,10 +241,10 @@ export default class CartsCard extends React.Component {
 
 
         return (
-            <View style={{flex:1/*,height:'100%',width:'100%'*/}}>
+            <View style={{ flex: 1/*,height:'100%',width:'100%'*/ }}>
                 <View style={{
-                    marginHorizontal:15,
-                    marginVertical:5,
+                    marginHorizontal: 15,
+                    marginVertical: 5,
                     // flex:1,
                     //height:'100%',
                     //flexDirection: 'row',
@@ -152,71 +254,78 @@ export default class CartsCard extends React.Component {
                     backgroundColor: '#f5f5f5',
                 }} >
 
-
+                    {this.props.mode == 'client' ?
+                        <UpperAdditionalJSX
+                            imagesrc={this.props.imagesrc}
+                            company_Name={this.props.company_Name}
+                            Hidedetails={this.props.Hidedetails}
+                            onPress={this.props.onPressSeeDetails}
+                            agent_Name={this.props.agent_Name}
+                            workingTime={this.props.workingTime} /> : <></>}
 
 
                     <View
-                        style={{marginBottom: '3%', flex: 1,}}
+                        style={{ marginBottom: '3%', flex: 1, }}
                     >
 
-                        
+
 
                         {this.props.data.items.map((sub, i) => {
-                        return (
-                            <View
-                                style={[{
-                                    flex: 1,
-                                    flexDirection: "row",
-
-                                    
-                                }, styles.container]}>
+                            return (
                                 <View
-                                    style={{
-                                        // flex
-                                        //flex: 0,
-                                        alignSelf: 'center',
-                                        width: 50,
-                                        height: 50,
-
-
-                                    }}>
-                                    <Image source={{ uri: `${sub.imgurl}` }} style={styles.image} />
-
-                                </View>
-                                <View
-                                    style={{
+                                    style={[{
                                         flex: 1,
-                                        alignItems: 'flex-start',
-                                        alignSelf: 'center',
-                                        //marginRight: '2%',
-                                        marginLeft: '2%'
+                                        flexDirection: "row",
 
-                                    }}>
-                                    <Text
-                                        style={{ color: '#424242' }}>x{sub.number} {sub.name}</Text>
-                                    <Text
-                                        style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>{sub.price} TND</Text>
+
+                                    }, styles.container]}>
+                                    <View
+                                        style={{
+                                            // flex
+                                            //flex: 0,
+                                            alignSelf: 'center',
+                                            width: 50,
+                                            height: 50,
+
+
+                                        }}>
+                                        <Image source={{ uri: `${sub.imgurl}` }} style={styles.image} />
+
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            alignItems: 'flex-start',
+                                            alignSelf: 'center',
+                                            //marginRight: '2%',
+                                            marginLeft: '2%'
+
+                                        }}>
+                                        <Text
+                                            style={{ color: '#424242' }}>x{sub.number} {sub.name}</Text>
+                                        <Text
+                                            style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>{sub.price} TND</Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            alignItems: 'flex-end',
+                                            alignSelf: 'center',
+
+                                        }}>
+                                        <Text
+                                            style={[{ fontSize: 14, fontWeight: "400" }, (sub.status == "Ready" || sub.status == "Delivered") ?
+                                                styles.green :
+                                                (sub.status == "Canceled") ?
+                                                    styles.red :
+                                                    styles.blue
+                                            ]}>{sub.status}</Text>
+                                    </View>
+
                                 </View>
-                                <View
-                                    style={{
-                                        flex: 1,
-                                        alignItems: 'flex-end',
-                                        alignSelf: 'center',
-                                      
-                                    }}>
-                                    <Text
-                                        style={[{ fontSize: 14, fontWeight: "400" }, (sub.status == "Ready" || sub.status == "Delivered") ?
-                                            styles.green :
-                                            (sub.status == "Canceled") ?
-                                                styles.red :
-                                                styles.blue
-                                        ]}>{sub.status}</Text>
-                                </View>
 
-                            </View>
-
-                        );
-                    })}
+                            );
+                        })}
                         {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
                             (<View></View>)
 
@@ -250,18 +359,18 @@ export class ConfirmButtonCartsCard extends React.Component {
             <View>
                 <Button
                     onPress={this.props.onPressConfirm}
-                    titleStyle={this.props.mode=='deliveryMan'?styles.deliveryManBottonText:styles.clientBottonText}
+                    titleStyle={this.props.mode == 'deliveryMan' ? styles.deliveryManBottonText : styles.clientBottonText}
                     buttonStyle={
-                        this.props.mode=='deliveryMan'?styles.deliveryManBotton:styles.clientBotton
-                    } title={this.props.mode=='deliveryMan'?`Accept order  (${this.props.price} TND)`:`Confirm order  (${this.props.price} TND)`}
+                        this.props.mode == 'deliveryMan' ? styles.deliveryManBotton : styles.clientBotton
+                    } title={this.props.mode == 'deliveryMan' ? `Accept order  (${this.props.price} TND)` : `Confirm order  (${this.props.price} TND)`}
 
                 />
                 <Pressable
                     onPress={this.props.onPressCancel}
                 >
                     <Text
-                        style={this.props.mode=='deliveryMan'?styles.deliveryManDecline:styles.clientCancel}
-                    >{this.props.mode=='deliveryMan'?'Declined order':'Cancel order'}</Text>
+                        style={this.props.mode == 'deliveryMan' ? styles.deliveryManDecline : styles.clientCancel}
+                    >{this.props.mode == 'deliveryMan' ? 'Declined order' : 'Cancel order'}</Text>
 
                 </Pressable>
 
@@ -324,7 +433,7 @@ const styles = StyleSheet.create({
     },
     deliveryManBotton: {
         backgroundColor: '#7dff9b',
-        
+
         borderRadius: 5,
         marginTop: '5%',
         marginLeft: "8%",
@@ -332,8 +441,8 @@ const styles = StyleSheet.create({
         fontWeight: '400'
     },
     deliveryManBottonText: {
-   
-        color:'#3a493a',
+
+        color: '#3a493a',
 
     },
     deliveryManDecline: {

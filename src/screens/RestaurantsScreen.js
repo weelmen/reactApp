@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import styles from "./style";
+
 import { ScrollView, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
-import { ButtonGroup, SearchBar, Button, Icon, Divider } from 'react-native-elements';
+import { ButtonGroup, Icon } from 'react-native-elements';
 import Restaurantscard from "../components/Restaurantscard";
 import Searchbar from "../components/Searchbar";
 import ButtonsGroup from "../components/ButtonsGroup";
@@ -30,11 +30,9 @@ const DATA = [
 
 
 const RestaurantsScreen = ({ navigation }) => {
-    const [texts, setTexts] = useState('');
-    const [showLoginPassword, setShowLoginPassword] = useState(false);
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
-    const [selectedIndexes, setSelectedIndexes] = useState([0]);
+
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
     const component2 = () =>
         <View>
@@ -78,13 +76,14 @@ const RestaurantsScreen = ({ navigation }) => {
 
             <View style={{ flex: 1 }}>
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
-
+                 
+                
                     <Searchbar />
-
+                    
                     <View>
                         {fakerestaurantsdata.map(item => {
                             return (
-                                <Restaurantscard showimage key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                                <Restaurantscard showimage key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} onPress={()=>navigation.navigate('Menus Screen')} />
                             );
                         })}
                     </View>

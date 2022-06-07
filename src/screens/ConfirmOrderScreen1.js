@@ -6,7 +6,8 @@ import { fakecartdata_test } from '../api-json-server/fakedata.json';
 //import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard";
 import ConfirmOrderScreen from "./ConfirmOrderScreen";
-import{ConfirmButtonCartsCard} from "../components/CartsCard";
+import Navigation from "../components/Navigation";
+import { ConfirmButtonCartsCard } from "../components/CartsCard";
 
 //let [confirmON, setConfirmON] = useState(false);
 function GetTotalPrice(data) {
@@ -27,8 +28,8 @@ function byID(idToSearch) {
 };
 function onPressFunction(test) {
 
-   console.log("test >>", test);
-   
+    console.log("test >>", test);
+
 
 
 };
@@ -67,7 +68,13 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+            <View style={{ height: '5%' }}>
+                <Navigation
+                    screenName={'My cart'}
+                    onPress={() => navigation.navigate('Menus Screen')}
+                />
 
+            </View>
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
                 <View
                     style={{}}
@@ -83,15 +90,17 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                     agent_Name={item.agent_Name}
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
-                                    ShowPriceDetails={[false, ]}
+                                    ShowPriceDetails={[false,]}
                                     navigations={navigation}
+                                    Hidedetails
+                                    mode={'client'}
                                 />
 
 
                                 <ConfirmButtonCartsCard
-                                    onPressConfirm={()=>onPressFunction("Confirm Order Pressed")}
+                                    onPressConfirm={() => navigation.navigate('Confirm Order Screen')}
                                     price={GetTotalPrice(item.items)}
-                                    onPressCancel={()=>onPressFunction("Cancel Order Pressed")}
+                                    onPressCancel={() => navigation.navigate('Restaurants Screen')}
                                     mode={'client'}
                                 />
 
@@ -101,7 +110,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                         );
 
 
-                        
+
                     })}
                     {fakecartdata_test.map((item, i) => {
                         () => setData(item);
@@ -114,8 +123,9 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                     agent_Name={item.agent_Name}
                                     workingTime='8 February 2022  .13:36'
                                     restaurant_name={item.restaurant_name}
-                                    ShowPriceDetails={[false, ]}
+                                    ShowPriceDetails={[false,]}
                                     navigations={navigation}
+                                    mode={'client'}
                                 />
 
 
@@ -126,7 +136,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                         );
 
 
-                        
+
                     })}
 
 

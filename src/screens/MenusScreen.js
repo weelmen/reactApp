@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from "./style";
-import { ScrollView, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
+import { ScrollView, Pressable, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
 import { ButtonGroup, SearchBar, Button, Icon, Divider, Card } from 'react-native-elements';
 import MenuCard from "../components/Menuscard";
 import Searchbar from "../components/Searchbar";
@@ -107,10 +107,10 @@ const MenusScreen = ({ navigation }) => {
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
     const [card, setCard] = useState(1);
-    const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
+    const component1 = () => <Icon name="home" type='font-awesome-5' color={'#e5e5e5'} />;
     const component2 = () =>
-        <View>
-            <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
+        <Pressable onPress={() => navigation.navigate('Cart Screen')}>
+            <Icon name="shopping-cart" type='font-awesome-5' color={'#e5e5e5'} />
             <View style={{ position: 'absolute',/* flexDirection:'column'*/ }}>
                 {card != 0 ? <View style={{
                     //  alignItems: 'flex-start',
@@ -131,7 +131,7 @@ const MenusScreen = ({ navigation }) => {
 
 
             </View>
-        </View>
+        </Pressable>
         ;
     // Make a request for a user with a given ID
     /*  const data=await axios.get('http://localhost:3000/fakemenusdata?id=1');
@@ -142,25 +142,29 @@ const MenusScreen = ({ navigation }) => {
 
         <View style={{ backgroundColor: 'white', flex: 1 }}>
 
-            <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '25%' }}>
+            <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '22%' }}>
                 <View style={{ height: '25%' }}>
                     <NavBar />
 
                 </View>
-                <View slyle={{ height: '20%'}}>
+                <View slyle={{ height: '20%' }}>
                     <ButtonsGroup
                         Data={DATA}
                         selected={DATA[0].id}
                         scroll={true}
                     />
                 </View>
-         
+
+                <View style={{ height: '50%'}}>
                     {byID(3, fakerestaurantsdata).map((item, i) => {
                         return (
-                            <Restaurantscard key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                            <View style={{ flex:1 }}>
+                            <Restaurantscard  key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                            </View>
                         )
                     })}
-            
+                </View>
+
 
             </View>
 
@@ -183,7 +187,7 @@ const MenusScreen = ({ navigation }) => {
 
                         {fakemenusdata.map(menusdata => {
                             return (
-                                <MenuCard key={menusdata.id} imagesrc={menusdata.srcimg} restaurantName={menusdata.name} />
+                                <MenuCard key={menusdata.id} imagesrc={menusdata.srcimg} restaurantName={menusdata.name} onPress={() => navigation.navigate('Choice Screen')} />
                             );
                         })}
 
@@ -200,12 +204,12 @@ const MenusScreen = ({ navigation }) => {
 
                     buttonContainerStyle={{ backgroundColor: 'transparent', borderColor: 'transparent', justifyContent: 'center', flexDirection: 'row', maxWidth: '38%' }}
                     selectedButtonStyle={{ backgroundColor: 'transparent', borderColor: 'transparent' }}
-                    selectedTextStyle={{ color: '#ffa457' }}
+                    //selectedTextStyle={{ color: '#ffa457' }}
                     buttons={[{ element: component1 }, { element: component2 }]}
-                    selectedIndex={selectedDownerIndex}
-                    onPress={(value) => {
-                        setSelectedDownerIndex(value);
-                    }}
+                    // selectedIndex={selectedDownerIndex}
+                    /* onPress={(value) => {
+                        // setSelectedDownerIndex(value);
+                     }}*/
                     textStyle={{ fontSize: 14 }}
                     containerStyle={{ borderColor: 'transparent', marginBottom: 0, justifyContent: 'center', flexDirection: 'row', }}
                 />

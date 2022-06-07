@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Card } from "react-native-elements";
 import ImgMenu from "../images/menu1.jpeg";
-import { AirbnbRating, StyleSheet, View, Text, Image ,Pressable} from 'react-native';
+import { StyleSheet, View, Text, Image, Pressable } from 'react-native';
 import Ratings from "./Ratings";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import style from "../screens/style";
@@ -19,91 +19,99 @@ export default class Restaurantscard extends React.Component {
         //const { imagesrc } = this.state;
         //  const {favorite} = this.state;
 
-      /*  <Card key={this.props.id} 
-            containerStyle={this.props.showimage ?styles.containerStyle: styles.containerStyleWithoutimage} 
-            wrapperStyle={this.props.showimage ?styles.wrapperStyle: styles.wrapperStyleWithoutimage}>*/
+        /*  <Card key={this.props.id} 
+              containerStyle={this.props.showimage ?styles.containerStyle: styles.containerStyleWithoutimage} 
+              wrapperStyle={this.props.showimage ?styles.wrapperStyle: styles.wrapperStyleWithoutimage}>*/
 
         const favorite = this.state.pressedFavorite ? 'heart-alt' : 'heart';
         return (
-<View style={[this.props.showimage ?styles.wrapperStyle: styles.wrapperStyleWithoutimage,styles.container,{flex:1}]}>
-            
-
-                {this.props.showimage ? <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} /> : <></>}
-
-
-
+            <Pressable
+                style={
+                    {flex:1}
+                }
+                onPress={this.props.onPress}
 
 
-                <View
-                    style={{
-                        //position: "relative",
-                        alignItems: "flex-start",
-                        margin: 10
+            >
+                <View style={[this.props.showimage ? styles.wrapperStyle : styles.wrapperStyleWithoutimage,]}>
+                    <View>
 
-                    }}
-                >
+                        {this.props.showimage ? <Image source={{ uri: `${this.props.imagesrc}` }} style={styles.image} /> : <View></View>}
 
-                    <View style={styles.cardcontainent}>
+                    </View>
 
-                        <Text style={[styles.text,{ flex: 1 }]}>{this.props.restaurantName}</Text>
-                        <View style={{}}>
-                            <Pressable
-                                style={{
 
-                                }}
-                                onPress={() => {
-                                    this.setState(
-                                        { pressedFavorite: !this.state.pressedFavorite }
 
-                                    )
-                                }
-                                }
+                    <View
+                        style={{
+                            flex:1,
+                            margin: '2%',
+                            
+                        }}
+                    >
 
-                            >
-                                <Icon
-                                    style={{ alignSelf: "flex-end"/* ,backgroundColor:'#ffa457'*/ }}
-                                    name={favorite}
-                                    //  theme="outlined"
-                                    type='fontisto'
-                                    size={18}
-                                    color={'#6357ff'}
+                        <View style={styles.cardcontainent}>
 
-                                />
-                            </Pressable>
+                            <Text style={[styles.text, { flex: 1 }]}>{this.props.restaurantName}</Text>
+                            <View style={{}}>
+                                <Pressable
+                                    style={{
+
+                                    }}
+                                    onPress={() => {
+                                        this.setState(
+                                            { pressedFavorite: !this.state.pressedFavorite }
+
+                                        )
+                                    }
+                                    }
+
+                                >
+                                    <Icon
+                                        style={{ alignSelf: "flex-end"/* ,backgroundColor:'#ffa457'*/ }}
+                                        name={favorite}
+                                        //  theme="outlined"
+                                        type='fontisto'
+                                        size={18}
+                                        color={'#6357ff'}
+
+                                    />
+                                </Pressable>
+                            </View>
                         </View>
-                    </View>
 
 
-                    <View style={styles.cardcontainent}>
+                        <View style={styles.cardcontainent}>
 
-                        <Text style={{
-                            flex:1,
-                            marginBottom: 5,
-                        }}>Asian, chinese food</Text>
-                        <Text style={{ fontSize: 12, fontWeight: '400' }}>(352) </Text>
-                        <Ratings />
-                    </View>
+                            <Text style={{
+                                flex: 1,
+                                marginBottom: 5,
+                            }}>Asian, chinese food</Text>
+                            <Text style={{ fontSize: 12, fontWeight: '400' }}>(352) </Text>
+                            <Ratings />
+                        </View>
 
-                    <View style={styles.cardcontainent}>
-                        <Text style={{
-                            flex:1,
+                        <View style={styles.cardcontainent}>
+                            <Text style={{
+                                flex: 1,
 
-                        }}>09:00 - 23:00</Text>
-                        <Text style={{ fontSize: 12, fontWeight: '400' }}>23 min </Text>
-                        <Icon
-                            style={{}}
-                            name='truck'
-                            type='font-awesome'
-                            size={16}
-                            color={'#6357ff'}
-                        />
+                            }}>09:00 - 23:00</Text>
+                            <Text style={{ fontSize: 12, fontWeight: '400' }}>23 min </Text>
+                            <Icon
+                                style={{}}
+                                name='truck'
+                                type='font-awesome'
+                                size={16}
+                                color={'#6357ff'}
+                            />
+                        </View>
+
+
                     </View>
 
 
                 </View>
-
-           
-            </View>
+            </Pressable>
 
 
         );
@@ -118,16 +126,16 @@ export default class Restaurantscard extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    
+
 
 
     },
     image: {
-        width: '100%',
-        height: 120,
+        // width: '100%',
+        height: 100,
         //borderRadius: 10,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
@@ -159,7 +167,7 @@ const styles = StyleSheet.create({
 
     },
     containerStyle: {
-      
+
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         borderWidth: 0,
@@ -167,14 +175,14 @@ const styles = StyleSheet.create({
         paddingBottom: 0,
         paddingLeft: 0,
         paddingRight: 0,
-     //   margin:0,
-       // padding:0
-       // height:'30%'
-        
+        //   margin:0,
+        // padding:0
+        // height:'30%'
+
     },
     containerStyleWithoutimage: {
-        borderBottomRightRadius:10,
-        borderBottomLeftRadius:10,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         borderWidth: 0,
@@ -182,31 +190,29 @@ const styles = StyleSheet.create({
         paddingBottom: 0,
         paddingLeft: 0,
         paddingRight: 0,
-       // margin:0,
-     //   padding:30
-       // height:'100%'
-        
+        // margin:0,
+        //   padding:30
+        // height:'100%'
+
     },
     wrapperStyle: {
         backgroundColor: '#e8e9e8',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
-       // margin:15,
-       marginHorizontal:15,
-      
-     //   margin:0,
-     //   padding:0
+        marginHorizontal: 15,
+
+        //   margin:0,
+        //   padding:0
 
     },
     wrapperStyleWithoutimage: {
+        flex:1,
         backgroundColor: '#e8e9e8',
-     /*   borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,*/
-        borderBottomRightRadius:10,
-        borderBottomLeftRadius:10,
-        marginHorizontal:15,
-        marginTop:0
-     //   margin:0,
-       // padding:0
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        marginHorizontal: 15,
+        marginTop: 0,
+      
+
     },
 });

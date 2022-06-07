@@ -11,6 +11,7 @@ import Ratings from "../components/Ratings";
 //import SVGLOGO from "../components/svg";
 import CheckBox from "../components/CheckBox";
 import CheckBoxList from "../components/CheckBoxList";
+import Navigation from "../components/Navigation";
 import { fakechoicedata } from '../api-json-server/fakedata.json'
 
 import { fakechoicedata_test } from '../api-json-server/fakedata.json'
@@ -38,7 +39,9 @@ const FoodChoiceScreen = ({ navigation }) => {
     return (
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
-
+            <View style={{ height:'5%' }}>
+                <Navigation onPress={() => navigation.navigate('Menus Screen')}/>
+            </View>
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
 
 
@@ -212,7 +215,8 @@ const FoodChoiceScreen = ({ navigation }) => {
 
                     marginLeft: "10%",
                     marginRight: "10%",
-                }} title={`Add to cart  (${sumprice} TND)`} />
+                }} title={`Add to cart  (${sumprice} TND)`}
+                    onPress={() => navigation.navigate('Confirm Order Screen 1')} />
             </View>
 
         </View>
