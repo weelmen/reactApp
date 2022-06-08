@@ -21,6 +21,7 @@ export default class DeliveryCard extends React.Component {
         };
 
     }
+
     updateState(state, mode) {
         // Changing state 
         if ((state.Swipe == false && mode == "ON") || (state.Swipe == true && mode == "OFF")) {
@@ -60,7 +61,7 @@ export default class DeliveryCard extends React.Component {
                             // borderRadius: 10,
                             marginTop: 5,
                             marginBottom: 3,
-                        
+
                             //   marginRight:5
                             marginLeft: -15,
 
@@ -126,7 +127,16 @@ export default class DeliveryCard extends React.Component {
         return (
 
             <View>
-                <SwipeProvider mode={'single'} closeTrigger={'onButtonShowed'}>
+               {this.props.mode==1?<AdditionalJSX
+                    Left1={this.state.Left1}
+                    Left2={this.state.Left2}
+                    Left3={this.state.Left3}
+                    Right1={this.state.Right1}
+                    Right2={this.state.Right2}
+                    Right3={this.state.Right3}
+                    Swipe={false} />
+                
+                :<SwipeProvider mode={'single'} closeTrigger={'onButtonShowed'}>
                     <SwipeItem
                         style={[{ borderRadius: 20, flex: 1 }]}
                         swipeContainerStyle={{ borderRadius: 20, }}/*[styles.swipeContentContainerStyle]}*/
@@ -134,144 +144,20 @@ export default class DeliveryCard extends React.Component {
                         //  disableSwipeIfNoButton={true}
                         onRightButtonsShowed={() => this.updateState(this.state, "ON")}
                         onMovedToOrigin={() => this.updateState(this.state, "OFF")}
-                        
+
                         /* leftButtons={}*/>
 
+                        <AdditionalJSX
+                            Left1={this.state.Left1}
+                            Left2={this.state.Left2}
+                            Left3={this.state.Left3}
+                            Right1={this.state.Right1}
+                            Right2={this.state.Right2}
+                            Right3={this.state.Right3}
+                            Swipe={this.state.Swipe} />
 
 
 
-                        <Card containerStyle={[this.state.Swipe ? styles.swipeON : styles.swipeOFF, {
-
-
-                            //   borderTopRightRadius: 10,
-                            borderWidth: 0,
-                            paddingTop: 0,
-                            paddingBottom: 0,
-                            paddingLeft: 0,
-                            paddingRight: 0,
-                            marginTop: 5,
-                            marginBottom: 5
-                        }]} wrapperStyle={[this.state.Swipe ? styles.swipeON : styles.swipeOFF, {
-                            backgroundColor: this.state.Right1=='Declined'?'#fae1e7':'#f5f5f5',
-
-                            //  borderTopRightRadius: 10,
-                        }]}>
-                            <View style={styles.container}>
-
-
-
-                                <View
-                                    style={[{
-                                        flex: 1,
-                                        flexDirection: "row",
-
-                                        // height:50,
-                                        // margin: 2
-                                    }, styles.itemincard]}>
-                                    <View
-                                        style={{
-                                            flex: 1,
-                                            alignItems: 'flex-start',
-
-                                            //marginRight: '2%',
-                                            marginLeft: '2%'
-
-                                        }}>
-                                        <Text
-                                            style={[styles.text, { color: '#424242' }]}>{this.state.Left1}</Text>
-
-                                    </View>
-                                    <View
-                                        style={{
-                                            // flex: 1,
-                                            alignItems: 'flex-end',
-                                            alignSelf: 'center'
-                                        }}>
-                                        <Text style={[styles.text, { color: '#847bfd' }]}>{this.state.Right1}</Text>
-                                    </View>
-
-
-                                </View>
-                                <View
-                                    style={[{
-                                        flex: 1,
-                                        flexDirection: "row",
-
-                                        // height:50,
-                                        // margin: 2
-                                    }, styles.itemincard]}>
-                                    <View
-                                        style={{
-                                            flex: 1,
-                                            alignItems: 'flex-start',
-
-                                            //marginRight: '2%',
-                                            marginLeft: '2%'
-
-                                        }}>
-                                        <Text
-                                            style={[styles.text, { color: '#424242' }]}>{this.state.Left2}</Text>
-
-                                    </View>
-                                    <View
-                                        style={{
-                                            // flex: 1,
-                                            alignItems: 'flex-end',
-                                            flexDirection: 'row'
-                                        }}>
-                                        <Text style={[styles.text, { color: '#424242' }]}>{this.state.Right2}</Text>
-                                        <View style={{ marginLeft: 5, marginRight: 0, alignSelf: 'flex-start' }}>
-                                            <Icon
-                                                style={{}}
-                                                name='truck'
-                                                type='font-awesome'
-                                                size={16}
-                                                color={'#6357ff'}
-                                            /></View>
-                                    </View>
-
-
-                                </View>
-                                <View
-                                    style={[{
-                                        flex: 1,
-                                        flexDirection: "row",
-
-                                        // height:50,
-                                        // margin: 2
-                                    }, styles.itemincard]}>
-                                    <View
-                                        style={{
-                                            flex: 1,
-                                            alignItems: 'flex-start',
-
-                                            //marginRight: '2%',
-                                            marginLeft: '2%'
-
-                                        }}>
-                                        <Text
-                                            style={[styles.text, { color: '#424242' }]}>{this.state.Left3}</Text>
-
-                                    </View>
-                                    <View
-                                        style={{
-                                            //   flex: 1,
-                                            alignItems: 'flex-end',
-
-                                        }}>
-                                        <Text style={[styles.text, { color: '#424242' }]}>{this.state.Right3}</Text>
-
-                                    </View>
-
-
-                                </View>
-
-
-
-
-
-                            </View>
-                        </Card>
 
 
 
@@ -280,13 +166,151 @@ export default class DeliveryCard extends React.Component {
 
 
                     </SwipeItem>
-                </SwipeProvider>
+                </SwipeProvider>}
             </View>
 
         );
     }
 }
+const AdditionalJSX = (props) => {
 
+    return (
+        <View style={{ flex: 1 }}>
+            <Card containerStyle={[props.Swipe ? styles.swipeON : styles.swipeOFF, {
+
+
+                //   borderTopRightRadius: 10,
+                borderWidth: 0,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0,
+                marginTop: 5,
+                marginBottom: 5
+            }]} wrapperStyle={[props.Swipe ? styles.swipeON : styles.swipeOFF, {
+                backgroundColor: props.Right1 == 'Declined' ? '#fae1e7' : '#f5f5f5',
+
+                //  borderTopRightRadius: 10,
+            }]}>
+                <View style={styles.container}>
+
+
+
+                    <View
+                        style={[{
+                            flex: 1,
+                            flexDirection: "row",
+
+                            // height:50,
+                            // margin: 2
+                        }, styles.itemincard]}>
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'flex-start',
+
+                                //marginRight: '2%',
+                                marginLeft: '2%'
+
+                            }}>
+                            <Text
+                                style={[styles.text, { color: '#424242' }]}>{props.Left1}</Text>
+
+                        </View>
+                        <View
+                            style={{
+                                // flex: 1,
+                                alignItems: 'flex-end',
+                                alignSelf: 'center'
+                            }}>
+                            <Text style={[styles.text, { color: '#847bfd' }]}>{props.Right1}</Text>
+                        </View>
+
+
+                    </View>
+                    <View
+                        style={[{
+                            flex: 1,
+                            flexDirection: "row",
+
+                            // height:50,
+                            // margin: 2
+                        }, styles.itemincard]}>
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'flex-start',
+
+                                //marginRight: '2%',
+                                marginLeft: '2%'
+
+                            }}>
+                            <Text
+                                style={[styles.text, { color: '#424242' }]}>{props.Left2}</Text>
+
+                        </View>
+                        <View
+                            style={{
+                                // flex: 1,
+                                alignItems: 'flex-end',
+                                flexDirection: 'row'
+                            }}>
+                            <Text style={[styles.text, { color: '#424242' }]}>{props.Right2}</Text>
+                            <View style={{ marginLeft: 5, marginRight: 0, alignSelf: 'flex-start' }}>
+                                <Icon
+                                    style={{}}
+                                    name='truck'
+                                    type='font-awesome'
+                                    size={16}
+                                    color={'#6357ff'}
+                                /></View>
+                        </View>
+
+
+                    </View>
+                    <View
+                        style={[{
+                            flex: 1,
+                            flexDirection: "row",
+
+                            // height:50,
+                            // margin: 2
+                        }, styles.itemincard]}>
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'flex-start',
+
+                                //marginRight: '2%',
+                                marginLeft: '2%'
+
+                            }}>
+                            <Text
+                                style={[styles.text, { color: '#424242' }]}>{props.Left3}</Text>
+
+                        </View>
+                        <View
+                            style={{
+                                //   flex: 1,
+                                alignItems: 'flex-end',
+
+                            }}>
+                            <Text style={[styles.text, { color: '#424242' }]}>{props.Right3}</Text>
+
+                        </View>
+
+
+                    </View>
+
+
+
+
+
+                </View>
+            </Card>
+        </View>
+    );
+}
 
 /*
 const updateState=(state,mode)=>{ 
@@ -352,7 +376,7 @@ const styles = StyleSheet.create({
     },
     swipeON: {
         borderRadius: 0,
-  
+
         /*  borderBottomRightRadius:0,
           borderTopRightRadius:0,
           borderBottomLeftRadius:10,

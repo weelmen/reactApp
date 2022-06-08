@@ -62,8 +62,8 @@ const DeliveryAcceptScreen = ({ navigation }) => {
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
     const [selectedIndexes, setSelectedIndexes] = useState([0]);
-    const [card, setCard] = useState(1);
-    const [action, setAction] = useState('Delivered');
+    const [card, setCard] = useState(0);
+    const [action, setAction] = useState('Accept');
     const [count, setCount] = useState(2);
     const [deliveryFeeMsg, setDeliveryFeeMsg] = useState('Delivery fee 4 TND');
     const [evaluation, setEvaluation] = useState('Good Job!!');
@@ -71,7 +71,7 @@ const DeliveryAcceptScreen = ({ navigation }) => {
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
     const component2 = () =>
         <View>
-            <Icon name="shopping-cart" type='font-awesome-5' color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
+            <Icon name="history" type='material'size={28} color={selectedDownerIndex === 1 ? '#6256fb' : '#e5e5e5'} />
             <View style={{ position: 'absolute',/* flexDirection:'column'*/ }}>
                 {card != 0 ? <View style={{
                     //  alignItems: 'flex-start',
