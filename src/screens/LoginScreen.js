@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import styles from "./style";
-import { Pressable,  Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView } from 'react-native';
+import { Pressable,  Keyboard/*, Image*/, Text, View, TextInput, TouchableWithoutFeedback/*, Alert,*/, KeyboardAvoidingView } from 'react-native';
 import { Button, Icon, Divider } from 'react-native-elements';
 
 import Logo from '../components/Logo';

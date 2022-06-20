@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { ScrollView, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
@@ -7,7 +7,8 @@ import Restaurantscard from "../components/Restaurantscard";
 import Searchbar from "../components/Searchbar";
 import ButtonsGroup from "../components/ButtonsGroup";
 import NavBar from "../components/Navbar";
-import { fakerestaurantsdata } from "../api-json-server/fakedata.json"
+import { fakerestaurantsdata } from "../api-json-server/fakedata.json";
+import  {GlobalContext} from "../store/globalContext"
 const DATA = [
     {
         id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -32,6 +33,7 @@ const DATA = [
 const RestaurantsScreen = ({ navigation }) => {
     const [selectedUpperIndex, setSelectedUpperIndex] = useState(0);
     const [selectedDownerIndex, setSelectedDownerIndex] = useState(0);
+    const profile = useContext(GlobalContext);
 
     const component1 = () => <Icon name="home" type='font-awesome-5' color={selectedDownerIndex === 0 ? '#6256fb' : '#e5e5e5'} />;
     const component2 = () =>
@@ -64,7 +66,8 @@ const RestaurantsScreen = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: '#fcfcfc' }}>
             <View style={{ height: '7%' }}>
                 <NavBar
-
+                cart={profile.Profile.cart}
+                imagesrc={profile.Profile.profileimg}
                 />
             </View>
             <ButtonsGroup
@@ -72,7 +75,7 @@ const RestaurantsScreen = ({ navigation }) => {
                 selected={DATA[0].id}
 
             />
-
+ 
 
             <View style={{ flex: 1 }}>
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
@@ -83,7 +86,7 @@ const RestaurantsScreen = ({ navigation }) => {
                     <View>
                         {fakerestaurantsdata.map(item => {
                             return (
-                                <Restaurantscard showimage key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} onPress={()=>navigation.navigate('Menus Screen')} />
+                                <Restaurantscard showimage key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} onPress={()=>console.log(profile.Profile.title)/*navigation.navigate('Menus Screen')*/} />
                             );
                         })}
                     </View>

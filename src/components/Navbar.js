@@ -13,7 +13,7 @@ const NavBar = (props) => {
       <View style={{ flex: 1, flexDirection: 'row', alignContent: 'center', }}>
         <View style={{ flex: 1, alignItems: 'flex-start', alignSelf: 'center' }}>
           <View >
-            <Image style={{/*flex:'',alignSelf:'center',alignContent:'center',*/ height: 37, width: 37, borderRadius: 30 }} source={Img} />
+            <Image style={{/*flex:'',alignSelf:'center',alignContent:'center',*/ height: 37, width: 37, borderRadius: 30 }} source={{ uri: `${props.imagesrc}` }} />
           </View>
         </View>
         <View style={{ flex: 1, alignItems: 'center', alignSelf: 'center', }}>
@@ -21,7 +21,7 @@ const NavBar = (props) => {
         </View>
         <View style={{ flex: 1, alignItems: 'flex-end', alignSelf: 'center', }}>
           <View style={{ flexDirection: 'row' }}>
-            <Text style={[styles.textStyle, { alignSelf: "flex-start" }]}>TND 300</Text>
+            <Text style={[styles.textStyle, { alignSelf: "flex-start" }]}>{props.cart}</Text>
             <Icon
               style={{ alignSelf: "flex-end", marginLeft: 5/* ,backgroundColor:'#ffa457'*/ }}
               name='credit-card'
