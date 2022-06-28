@@ -15,13 +15,13 @@ const CheckBoxList = (props) => {
 		if (choice[i] == true) {
 			// console.log(choice)  
 			setChoice({ ...choice, [i]: !choice[i] });
-			props.total(price, false);
+			props.total(price, 'minus');
 			
 		}
 		else {
 			setChoice({ ...choice, [i]: !choice[i] });
 			
-			props.total(price, true);
+			props.total(price, 'plus');
 		};
 	};
 

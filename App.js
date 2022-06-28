@@ -20,29 +20,35 @@ import DeliveryScreen from './src/screens/DeliveryScreen';
 import DeliveryAcceptScreen from './src/screens/DeliveryAcceptOrderScreen';
 import TestScreen from './src/screens/TestScreen';
 
+
 const Stack = createStackNavigator();
 const App = () => {
   return (
-
+    
+   
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Restaurants Screen">
-        <Stack.Screen name="Sign In" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Sign Up" component={RegisterScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Sign Up2" component={SignupScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Sign Up3" component={SignupScreen2} options={{ headerShown: false }} />
-        <Stack.Screen name="Restaurants Screen" component={RestaurantsScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Menus Screen" component={MenusScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Choice Screen" component={FoodChoiceScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Cart Screen" component={CartScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Confirm Order Screen" component={ConfirmOrderScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Confirm Order Screen 1" component={ConfirmOrderScreen1} options={{ headerShown: false }} />
-        <Stack.Screen name="Order Number Screen" component={OrderNumberScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Delivery Screen" component={DeliveryScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Delivery Accept Screen" component={DeliveryAcceptScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Test Screen" component={TestScreen} />
 
+      <Stack.Navigator initialRouteName="Menus Screen">
+        
+          <Stack.Screen name="Sign In" component={LoginScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Sign Up" component={RegisterScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Sign Up2" component={SignupScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Sign Up3" component={SignupScreen2} options={{ headerShown: false }} />
+          <Stack.Screen name="Restaurants Screen" component={RestaurantsScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Menus Screen" component={MenusScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Choice Screen" component={FoodChoiceScreen} options={({ route }) => ({ title: route.params.test, headerShown: false })  } />
+          <Stack.Screen name="Cart Screen" component={CartScreen} options={({ route }) => ({ title: route.params.test, headerShown: false })  } />
+          <Stack.Screen name="Confirm Order Screen" component={ConfirmOrderScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Confirm Order Screen 1" component={ConfirmOrderScreen1} options={{ headerShown: false }} />
+          <Stack.Screen name="Order Number Screen" component={OrderNumberScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Delivery Screen" component={DeliveryScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Delivery Accept Screen" component={DeliveryAcceptScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Test Screen" component={TestScreen} />
+        
       </Stack.Navigator>
+
     </NavigationContainer>
+    
 
   );
 };

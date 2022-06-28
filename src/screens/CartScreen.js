@@ -6,7 +6,7 @@ import { fakecartdata_test } from '../api-json-server/fakedata.json';
 import Logo1 from "../icons/autocode.svg";
 import CartsCard from "../components/CartsCard"
 import Navigation from "../components/Navigation";
-
+import CartContext from "../store/Context/cart/CartContext";
 
 /*
 async function load(name) {
@@ -36,24 +36,22 @@ const CartScreen = ({ navigation }) => {
 
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
             <View style={{ height: '8%' }}>
-                <Navigation 
+                <Navigation
                     screenName={'My cart'}
-                    onPress={()=>navigation.navigate('Menus Screen')}
+                    onPress={() => navigation.navigate('Menus Screen')}
                 />
 
             </View>
 
             <ScrollView style={{ backgroundColor: '#fcfcfc', flex: 1, }} >
-               
-               
-               
+
+
+
                 <View
                     style={{}}
                 >
-
-
-
-                    {fakecartdata_test.map((item,i) => {
+                    
+                    {fakecartdata_test.map((item, i) => {
                         return (
 
                             <CartsCard
@@ -63,8 +61,8 @@ const CartScreen = ({ navigation }) => {
                                 agent_Name={item.agent_Name}
                                 workingTime='8 February 2022  .13:36'
                                 restaurant_name={item.restaurant_name}
-                                ShowPriceDetails={[false, ]}
-                                onPressSeeDetails={()=>navigation.navigate('Order Number Screen')}
+                                ShowPriceDetails={[false,]}
+                                onPressSeeDetails={() => navigation.navigate('Order Number Screen')}
                                 mode={'client'}
                             />
 

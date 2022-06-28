@@ -10,14 +10,14 @@ function GetTotalPrice(data) {
     data.filter(item => {
         item.price !== 0 ? total = (total + (item.price * item.number)) : NaN
     })
-    console.log("total =====", total);
+    //console.log("total =====", total);
     return (total)
 };
-function click(test) {
+/*function click(test) {
 
     console.log("total =====", test);
 
-};
+};*/
 const UpperAdditionalJSX = (props) => {
     return (
         <View
@@ -82,7 +82,7 @@ const UpperAdditionalJSX = (props) => {
                                     paddingRight: '2%'
 
                                 }}
-                                onPress={ props.onPress}
+                                onPress={props.onPress}
                             >
 
                                 <Text
@@ -326,6 +326,115 @@ export default class CartsCard extends React.Component {
 
                             );
                         })}
+                        {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
+                            (<View></View>)
+
+
+
+                        }
+
+
+                    </View>
+
+
+
+
+
+
+
+
+                </View>
+
+            </View>
+        );
+    }
+}
+export class WaitingCartsCard extends React.Component {
+
+    render() {
+
+
+        return (
+            <View style={{ flex: 1/*,height:'100%',width:'100%'*/ }}>
+                <View style={{
+                    marginHorizontal: 15,
+                    marginVertical: 5,
+                    // flex:1,
+                    //height:'100%',
+                    //flexDirection: 'row',
+                    borderRadius: 10,
+                    // borderTopRightRadius: 10,
+
+                    backgroundColor: '#f5f5f5',
+                }} >
+
+                    {this.props.mode == 'client' ?
+                        <UpperAdditionalJSX
+                            imagesrc={this.props.imagesrc}
+                            company_Name={this.props.company_Name}
+                            Hidedetails={this.props.Hidedetails}
+                            onPress={this.props.onPressSeeDetails}
+                            agent_Name={this.props.agent_Name}
+                            workingTime={this.props.workingTime} /> : <></>}
+
+
+                    <View
+                        style={{ marginBottom: '3%', flex: 1, }}
+                    >
+
+
+
+
+                        <View
+                            style={[{
+                                flex: 1,
+                                flexDirection: "row",
+
+
+                            }, styles.container]}>
+                            <View
+                                style={{
+                                    // flex
+                                    //flex: 0,
+                                    alignSelf: 'center',
+                                    width: 50,
+                                    height: 50,
+
+
+                                }}>
+                                <Image source={{ uri: `${this.props.data.imgurl}` }} style={styles.image} />
+
+                            </View>
+                            <View
+                                style={{
+                                    flex: 1,
+                                    alignItems: 'flex-start',
+                                    alignSelf: 'center',
+                                    //marginRight: '2%',
+                                    marginLeft: '2%'
+
+                                }}>
+                                <Text
+                                    style={{ color: '#424242' }}>x{this.props.data.number} {this.props.data.title}</Text>
+                                <Text
+                                    style={{ color: '#424242', fontSize: 11, fontWeight: "400" }}>{this.props.data.price} TND</Text>
+                            </View>
+                            <View
+                                style={{
+                                    flex: 1,
+                                    alignItems: 'flex-end',
+                                    alignSelf: 'center',
+
+                                }}>
+                                <Text
+                                    style={[{ fontSize: 14, fontWeight: "400" }, 
+                                            styles.blue
+                                    ]}>In cart</Text>
+                            </View>
+
+                        </View>
+
+
                         {this.props.ShowPriceDetails[0] ? (<AdditionalJSX InitialPrice={this.props.ShowPriceDetails[1]} />) :
                             (<View></View>)
 

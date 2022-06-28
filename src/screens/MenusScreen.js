@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from "./style";
-import { ScrollView, Pressable, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
+import { ActivityIndicator, ScrollView, Pressable, Keyboard, Image, Text, View, TextInput, TouchableWithoutFeedback, Alert, KeyboardAvoidingView, ScrollViewComponent } from 'react-native';
 import { ButtonGroup, SearchBar, Button, Icon, Divider, Card } from 'react-native-elements';
 import MenuCard from "../components/Menuscard";
 import Searchbar from "../components/Searchbar";
@@ -9,6 +9,7 @@ import { authUser } from "../controller/user.controller";
 import NavBar from "../components/Navbar";
 import ButtonsGroup from "../components/ButtonsGroup";
 import Restaurantscard from "../components/Restaurantscard";
+import Loading from "../components/Loading";
 //import get from "../controller/user.controller";
 //import { Axios } from "axios";
 
@@ -140,7 +141,9 @@ const MenusScreen = ({ navigation }) => {
     //  const Buttoncomponent1 = () => <View style={{backgroundColor:'red'}}><Text >All</Text></View>
     return (
 
+
         <View style={{ backgroundColor: 'white', flex: 1 }}>
+
 
             <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '22%' }}>
                 <View style={{ height: '25%' }}>
@@ -155,20 +158,23 @@ const MenusScreen = ({ navigation }) => {
                     />
                 </View>
 
-                <View style={{ height: '50%'}}>
+                <View style={{ height: '50%' }}>
                     {byID(3, fakerestaurantsdata).map((item, i) => {
                         return (
-                            <View style={{ flex:1 }}>
-                            <Restaurantscard  key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
+                            <View style={{ flex: 1 }}>
+                                <Restaurantscard key={item.id} imagesrc={item.imagesrc} restaurantName={item.restaurantname} />
                             </View>
                         )
                     })}
                 </View>
 
 
-            </View>
 
+
+            </View>
             <View style={{ flex: 1 }}>
+
+
                 <ScrollView style={{ backgroundColor: '#fcfcfc' }}>
 
 
@@ -187,7 +193,7 @@ const MenusScreen = ({ navigation }) => {
 
                         {fakemenusdata.map(menusdata => {
                             return (
-                                <MenuCard key={menusdata.id} imagesrc={menusdata.srcimg} restaurantName={menusdata.name} onPress={() => navigation.navigate('Choice Screen')} />
+                                <MenuCard key={menusdata.id} imagesrc={menusdata.srcimg} restaurantName={menusdata.name} onPress={() => navigation.navigate('Choice Screen', { data: menusdata })} />
                             );
                         })}
 
@@ -215,7 +221,10 @@ const MenusScreen = ({ navigation }) => {
                 />
             </View>
 
+           <Loading/>
+
         </View>
+
     );
 
 }

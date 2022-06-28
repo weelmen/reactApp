@@ -8,16 +8,30 @@ import CartsCard from "../components/CartsCard";
 import ConfirmOrderScreen from "./ConfirmOrderScreen";
 import Navigation from "../components/Navigation";
 import { ConfirmButtonCartsCard } from "../components/CartsCard";
-
+import { WaitingCartsCard } from "../components/CartsCard";
+import CartContext from "../store/Context/cart/CartContext";
 //let [confirmON, setConfirmON] = useState(false);
 function GetTotalPrice(data) {
     let total = 0;
-    data.filter(item => {
-        item.price !== 0 ? total = (total + (item.price * item.number)) : NaN
-    })
-    console.log("total =====", total);
+   /* data.filter(item => {*/
+   data.price !== 0 ? total = (total + (data.price * data.number)) : NaN
+  /*  })
+    console.log("total =====", total);*/
     return (total)
 };
+function handleClickCancel(navigation,context,cartItem){
+
+
+    var promise = new Promise(context.removeProductFromCart.bind(
+        this,
+        cartItem.id
+      ))
+    promise.then(navigation.navigate('Restaurants Screen'))
+   
+ 
+
+/*console.warn(product);*///navigation.navigate('Confirm Order Screen 1');
+}
 
 function byID(idToSearch) {
     return fakecartdata_test.filter(item => {
@@ -79,10 +93,51 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                 <View
                     style={{}}
                 >
+                    <View>
+                        <CartContext.Consumer>
+                            {context => (<View>
+                                {context.cart.map(cartItem => {
+                                    return (
+                                        <View style={{ flex: 1 }}>
+                                            <View>
+
+                                                <WaitingCartsCard
+                                                    data={cartItem}
+                                                    imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
+                                                    company_Name={"cartItem.company_Name"}
+                                                    agent_Name={"cartItem.agent_Name"}
+                                                    workingTime='8 February 2022  .13:36'
+                                                    restaurant_name={"cartItem.restaurant_name"}
+                                                    ShowPriceDetails={[false,]}
+                                                    navigations={navigation}
+                                                    Hidedetails
+                                                    mode={'client'}
+                                                />
+
+
+                                                <ConfirmButtonCartsCard
+                                                    onPressConfirm={() =>  navigation.navigate('Test Screen')}
+                                                    price={GetTotalPrice(cartItem)}
+                                                    onPressCancel={() => handleClickCancel(navigation,context,cartItem)}
+                                                    mode={'client'}
+                                                />
+
+
+                                            </View>
+
+                                        </View>
+                                    );
+                                })}
+                            </View>
+
+                            )}
+                        </CartContext.Consumer>
+                    </View>
                     {byID(6).map((item, i) => {
                         () => setData(item);
                         return (
                             <View>
+
                                 <CartsCard
                                     data={item}
                                     imagesrc="https://logowik.com/content/uploads/images/vector-triangle-logo-mark9022.jpg"
@@ -98,7 +153,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
 
 
                                 <ConfirmButtonCartsCard
-                                    onPressConfirm={() => navigation.navigate('Confirm Order Screen')}
+                                    onPressConfirm={() => context /*navigation.navigate('Confirm Order Screen')*/}
                                     price={GetTotalPrice(item.items)}
                                     onPressCancel={() => navigation.navigate('Restaurants Screen')}
                                     mode={'client'}
