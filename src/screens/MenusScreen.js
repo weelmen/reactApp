@@ -10,6 +10,7 @@ import NavBar from "../components/Navbar";
 import ButtonsGroup from "../components/ButtonsGroup";
 import Restaurantscard from "../components/Restaurantscard";
 import Loading from "../components/Loading";
+import CartContext from "../store/Context/cart/CartContext";
 //import get from "../controller/user.controller";
 //import { Axios } from "axios";
 
@@ -142,9 +143,10 @@ const MenusScreen = ({ navigation }) => {
     return (
 
 
-        <View style={{ backgroundColor: 'white', flex: 1 }}>
+       
 
-
+<CartContext.Consumer>
+                            {context => ( <View style={{ backgroundColor: 'white', flex: 1 }}>
             <View style={{ backgroundColor: 'white'/*, flexDirection:'column' */, height: '22%' }}>
                 <View style={{ height: '25%' }}>
                     <NavBar />
@@ -172,6 +174,7 @@ const MenusScreen = ({ navigation }) => {
 
 
             </View>
+            
             <View style={{ flex: 1 }}>
 
 
@@ -220,10 +223,12 @@ const MenusScreen = ({ navigation }) => {
                     containerStyle={{ borderColor: 'transparent', marginBottom: 0, justifyContent: 'center', flexDirection: 'row', }}
                 />
             </View>
-
-           <Loading/>
-
-        </View>
+           
+                                {context.loading?<Loading/>:<></>}
+                                
+                               </View> )}
+            </CartContext.Consumer>
+        
 
     );
 

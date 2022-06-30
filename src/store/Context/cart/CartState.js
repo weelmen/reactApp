@@ -46,6 +46,7 @@ const CartState = props => {
     { id: "p3", title: "fricasse", price: 0.99 },
     { id: "p4", title: "tonn", price: 2.99 }*/
   ];
+
  // const loading =false;
   // const [cart, setCart] = useState([]);
   const [cartState, dispatch] = useReducer(shopReducer, { cart: [] });
@@ -63,11 +64,13 @@ const CartState = props => {
       dispatch({ type: REMOVE_PRODUCT, productId: productId });
     }, 700);
   };
-  const Loading = (state) => {
-    setTimeout(() => {
-      // setCart(updatedCart);
+  const Loading = state => {
+    /*setTimeout(() => {
+      // setCart(updatedCart);*/
+      console.log({state});
       setLoading(state);
-    }, 2000);
+   // }, 700)
+   //console.log('123')
   };
   return (
     <CartContext.Provider

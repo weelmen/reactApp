@@ -14,7 +14,7 @@ import { fakechoicedata_test } from '../api-json-server/fakedata.json'
 
 import CartContext from "../store/Context/cart/CartContext";
 
-
+import Loading from "../components/Loading";
 
 
 
@@ -50,13 +50,25 @@ const FoodChoiceScreen = ( {navigation,route} ) => {
 
     console.log('test',cartItems);
    }*/
-   
+   function set(context,pop){
 
-     function handleClick(context,product){
+    return (new Promise( context.Loading.bind(this,pop))/*console.log(pop)*/)
+   }
 
+      function handleClick(context,product){
 
+        //await (context.addProductToCart.bind(this, product))
+    
+       // .then(navigation.navigate('Confirm Order Screen 1'))
+       
         var promise = new Promise(context.addProductToCart.bind(this, product))
-        promise.then(navigation.navigate('Confirm Order Screen 1'))
+      //  var promise2=promise.then(set(context,true))
+        //var promise1= promise0.then(context.Loading.bind(this,true))
+        
+         
+       // promise then(context.Loading.bind(this,false))
+      // var promise2= promise1.then( setTimeout( context.Loading.bind(this,false), 3000))
+      promise.then(navigation.navigate('Confirm Order Screen 1'))
        
      
 
@@ -78,7 +90,8 @@ const FoodChoiceScreen = ( {navigation,route} ) => {
     }
 
     return (
-        
+        <CartContext.Consumer>
+            {context => 
                 <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
                     <View style={{ height: '5%' }}>
                         <Navigation onPress={() => navigation.navigate('Menus Screen')} />
@@ -248,8 +261,8 @@ const FoodChoiceScreen = ( {navigation,route} ) => {
                         </Card>
 
                     </ScrollView>
-                    <CartContext.Consumer>
-                    {context => ( <View styles={{ backgroundColor: "#ffffff" }}>
+                    
+                     <View styles={{ backgroundColor: "#ffffff" }}>
                         <Button buttonStyle={{
                             backgroundColor: '#6357ff',
                             borderRadius: 5,
@@ -259,11 +272,13 @@ const FoodChoiceScreen = ( {navigation,route} ) => {
                         }} title={`Add to cart  (${totalPrice} TND)`}
                             onPress={/*()=>{context.addProductToCart.bind(this, product)}*/()=>handleClick(context,product)/*context.addProductToCart.bind(this, product)*/}/>
                     </View>
-                    )}
-                    </CartContext.Consumer>
-
-                </View>
-  
+                    
+                
+                    {context.loading?<Loading/>:<></>}
+                    
+                     
+                    </View>}
+   </CartContext.Consumer>
 
     );
 }

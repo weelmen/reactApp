@@ -4,8 +4,9 @@ export default React.createContext({
     cartItems: [
      
   ],
-  loading:true,
+  loading:false,
   cart: [],
   addProductToCart: product => {},
-  removeProductFromCart: productId => {}
+  removeProductFromCart: productId => {},
+  Loading:state=>{}
 });

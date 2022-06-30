@@ -10,6 +10,7 @@ import Navigation from "../components/Navigation";
 import { ConfirmButtonCartsCard } from "../components/CartsCard";
 import { WaitingCartsCard } from "../components/CartsCard";
 import CartContext from "../store/Context/cart/CartContext";
+import Loading from "../components/Loading";
 //let [confirmON, setConfirmON] = useState(false);
 function GetTotalPrice(data) {
     let total = 0;
@@ -80,7 +81,9 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
     const [data, setData] = useState();
 
     return (
-
+        <CartContext.Consumer>
+            {context =>
+            
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
             <View style={{ height: '5%' }}>
                 <Navigation
@@ -94,8 +97,8 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                     style={{}}
                 >
                     <View>
-                        <CartContext.Consumer>
-                            {context => (<View>
+                       
+                             <View>
                                 {context.cart.map(cartItem => {
                                     return (
                                         <View style={{ flex: 1 }}>
@@ -130,8 +133,7 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
                                 })}
                             </View>
 
-                            )}
-                        </CartContext.Consumer>
+                           
                     </View>
                     {byID(6).map((item, i) => {
                         () => setData(item);
@@ -199,9 +201,14 @@ const ConfirmOrderScreen1 = ({ navigation, price }) => {
 
             </ScrollView>
 
-
-        </View>
-
+           
+        
+        
+         {context.loading?<Loading/>:<></>}
+         </View>
+        }
+ 
+ </CartContext.Consumer>
 
     );
     consol.log(data);
